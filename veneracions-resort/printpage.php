@@ -34,8 +34,7 @@ session_start();
                                                         <b><?php echo $_SESSION['total_night'] ?></b> night stay(s) from
                                                         <b><?php echo $_SESSION['checkin_date'] ?></b> to
                                                         <b><?php echo $_SESSION['checkout_date'] ?></b>
-                                                    <?php echo "    <br>No. of Guest/s :
-                                                        <b> " . array_sum($_SESSION['guestqty']) . "</b> 
+                                                    <?php echo "
                                                         <br>
                                                         <br>
                                                         <b>Contact Detail</b>
@@ -77,7 +76,7 @@ session_start();
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td style='width:200px;'>15% Deposit Due</td>
+                                                                <td style='width:200px;'>20% Deposit Due</td>
                                                                 <td style='width:200px;'>
                                                                     <b>PHP" . number_format($_SESSION['deposit'], 2) . "</b>
                                                                 </td>
@@ -89,7 +88,7 @@ session_start();
 					<br>Notes & Policy:</b>
 
 															<br>
-															<b>1. Please pay 15% deposit to confirmed your booking.</b><br>
+															<b>1. Please pay 20% deposit to confirm your booking.</b><br>
 															2. This hotel are not allowed etc etc<br>
 															3. Please check in before bla bla<br>
 															4. The hotel management has right to cancel the booking
