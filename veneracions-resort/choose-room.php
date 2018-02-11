@@ -230,7 +230,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
                                     echo mysql_error();
                                     if (mysql_num_rows($result) > 0) {
                                         echo '<p><b>Choose Your Room</b></p><hr class="line">';
-                                        print '<form action="billing-details.php" method="post" id="choose-room"><div class="availability-form">';
+                                        print '<form action="billing-details.php" method="post" id="chooseroom"><div class="availability-form">';
                                         while ($row = mysql_fetch_array($result)) {
                                             if ($row['availableroom'] != null && $row['availableroom'] > 0) {
                                                 $sub_result = mysql_query("SELECT room.* from room where room.room_id = " . $row['room_id'] . " ");
@@ -325,7 +325,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
                                     <div class="reservation-sidebar_availability bg-gray" id="roomselected" style="display:none;">
                                     <!-- <label for="submit-form" class="awe-btn awe-btn-13" onClick="submitForm()">Proceed To Book
                                     </label> -->
-                                    <button name="submit" class="awe-btn awe-btn-13">BOOK NOW</button>
+                                    <button name="submit" class="awe-btn awe-btn-13" onclick="submitForm();">BOOK NOW</button>
                                     </div>
                                 </div>
                     </div>

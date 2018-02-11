@@ -18,7 +18,7 @@ if (!isset($_SESSION['room_id'])) {
     $_SESSION['deposit'] = 0;
 }
 
-$result = mysql_query("SELECT * from room AND isCocoylandia=0");
+$result = mysql_query("SELECT * from room WHERE isCocoylandia = 0");
 if (mysql_num_rows($result) > 0) {
     $count = 0;
     while ($row = mysql_fetch_array($result)) {
@@ -68,6 +68,7 @@ console_log($_SESSION);
         <!-- MAIN STYLE -->
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        
 
     </head>
 
@@ -86,7 +87,7 @@ console_log($_SESSION);
         <div id="page-wrap">
 
             <!-- HEADER -->
-            <header id="header" class="header-v2">
+            <header id="header" class="header">
 
 
                 <!-- HEADER LOGO & MENU -->
@@ -295,7 +296,7 @@ console_log($_SESSION);
                                                     <label>Zip/Postcode
                                                         <sup>*</sup>
                                                     </label>
-                                                    <input required class="input-text" name="postcode" id="postcode" type="number" pattern="[0-9]{4}" value="<?php if (isset($_SESSION['postcode']) && !empty($_SESSION['postcode'])) {echo $_SESSION['postcode'];}?>"
+                                                    <input required class="input-text" name="postcode" id="postcode" type="number" pattern=".{4,4}" value="<?php if (isset($_SESSION['postcode']) && !empty($_SESSION['postcode'])) {echo $_SESSION['postcode'];}?>"
                                                         placeholder="e.g. 1600" / />
                                                 </div>
                                             </div>
@@ -412,7 +413,7 @@ for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
                 <!-- FOOTER BOTTOM -->
                 <div class="footer_bottom">
                     <div class="container">
-                        <p>&copy; 2017 Montalban Waterpark and Garden Resort All rights reserved.</p>
+                        <p>&copy; 2017 Cocoylandia Family Resort All rights reserved.</p>
                     </div>
                 </div>
                 <!-- END / FOOTER BOTTOM -->
@@ -443,7 +444,7 @@ for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
 
             }
         </script>
-                <script>
+        <script>
             $(function() {
                 $('#postcode').keyup( function(e){
                 if ($(this).val().length >= 4) { 
@@ -462,7 +463,6 @@ for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
                 });
             });
         </script>
-
 
         <!-- LOAD JQUERY -->
         <script type="text/javascript" src="js/lib/jquery-1.11.0.min.js"></script>
