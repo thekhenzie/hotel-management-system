@@ -227,7 +227,7 @@ for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
         echo '
                                                 <li>
                                                     <span>' . date("M d, Y", $date) . '  ' . $_SESSION['roomqty'][$i] . ' x ₱' . ($_SESSION['ind_rate'][$i] / $_SESSION['roomqty'][$i]) . '</span>
-                                                    <span>₱' . $_SESSION['ind_rate'][$i] . '.00</span>
+                                                    <span>₱' . ($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12 ). '.00</span>
                                                 </li>';
     }
 
