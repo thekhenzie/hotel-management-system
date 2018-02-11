@@ -29,7 +29,7 @@ session_start();
                                                     <td>Dear <?php echo ($_SESSION['firstname'] . ' ' . $_SESSION['lastname']) ?>
                                                         <br>
                                                         <br>
-                                                        <b>Booking ID #<?php echo $_SESSION['booking_id'] ?></b>
+                                                        <b>Booking ID #<?php echo ($_SESSION['booking_id']+1) ?></b>
                                                         <br>
                                                         <b><?php echo $_SESSION['total_night'] ?></b> night stay(s) from
                                                         <b><?php echo $_SESSION['checkin_date'] ?></b> to
