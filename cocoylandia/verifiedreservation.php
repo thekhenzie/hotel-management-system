@@ -48,7 +48,7 @@ if (mysql_num_rows($res) > 0) {
         $message .= "										<table class=\"invoice\">\n";
         $message .= "											<tr>\n";
         $message .= "												<td>Dear " . $rows['first_name'] . " " . $rows['last_name'] . "<br><br><b>Booking ID #" . ($rows['booking_id'] + 1) . "</b>";
-        $message .= "                                               <br/> From <b>" . $rows['checkin_date'] . "</b> to <b>" . $rows['checkout_date'] . "</b><br><b>Contact Detail</b><br>" . $rows['addressline1'] . ", " . $rows['addressline2'] . "<br>" . $rows['postcode'] . " " . $rows['city'] . ", <br>" . $rows['state'] . ", " . $rows['country'] . "<br>Phone <b>" . $rows['phone'] . "</b><br>Email <b>" . $rows['email'] . "</b><br><br><br></td>\n";
+        $message .= "                                               <br/> From <b>" . $rows['checkin_date'] . "</b> to <b>" . $rows['checkout_date'] . "</b><br><b>Contact Detail</b><br>" . $rows['addressline1'] . ", " . $rows['addressline2'] . "<br>" . $rows['postcode'] . " " . $rows['city'] . ", <br><br>Phone <b>" . $rows['phone'] . "</b><br>Email <b>" . $rows['email'] . "</b><br><br><br></td>\n";
         $message .= "											</tr>\n";
         $message .= "											<tr>\n";
         $message .= "												<td>\n";
@@ -96,7 +96,7 @@ if (mysql_num_rows($res) > 0) {
         $message .= "								</tr>\n";
         $message .= "								<tr>\n";
         $message .= "									<td>\n";
-        $message .= "										<br><br>Cocoylandia Family Resort Inc. 2210309294\n";
+        $message .= "										<br><p><b>BANK DETAILS</b> <br/><b>ACCOUNT NAME:</b> Montalban Waterpark and Garden Resort Inc.<br/><b>ACCOUNT NUMBER: </b>2210309294</p>\n";
         $message .= "									</td>\n";
         $message .= "								</tr>\n";
         $message .= "							</table>\n";
@@ -106,7 +106,7 @@ if (mysql_num_rows($res) > 0) {
         $message .= "				<div class=\"footer\">\n";
         $message .= "					<table width=\"100%\">\n";
         $message .= "						<tr>\n";
-        $message .= "							<td><br>Questions? Email <a href=\"mailto:\">montalbanwaterpark@yopmail.com or Call Us at 0000000</a></td>\n";
+        $message .= "							<td><br>Questions? Email <a href=\"mailto:\">testing.cocoylandia@yopmail.com or Call Us at 0000000</a></td>\n";
         $message .= "						</tr>\n";
         $message .= "					</table>\n";
         $message .= "				</div></div>\n";

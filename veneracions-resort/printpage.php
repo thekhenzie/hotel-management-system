@@ -102,8 +102,7 @@ session_start();
 								</tr>
 								<tr>
 									<td>
-										<br><p><b>BANK DETAILS</b> <br/><b>ACCOUNT NAME:</b> Montalban Waterpark and Garden Resort Inc. <br/>
-                                        <b>ACCOUNT NUMBER: </b>2210309294</p>
+										<br><p><b>BANK DETAILS</b> <br/><b>ACCOUNT NAME:</b> Montalban Waterpark and Garden Resort Inc.<br/><b>ACCOUNT NUMBER: </b>2210309294</p>
 									</td>
 								</tr>
 							</table>

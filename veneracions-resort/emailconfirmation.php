@@ -52,7 +52,7 @@ $message = "<a href='http://127.0.0.1/veneracions-resort/reserve.php?id=" . $_SE
 $message .= "				<div class=\"footer\">\n";
 $message .= "					<table width=\"100%\">\n";
 $message .= "						<tr>\n";
-$message .= "							<td><br>Questions? Email <a href=\"mailto:\">hello@yopmail.com or Call Us at 0000000</a></td>\n";
+$message .= "							<td><br><br>Questions? Email <a href=\"mailto:\">testing.montalban@yopmail.com or Call Us at 0000000</a></td>\n";
 $message .= "						</tr>\n";
 $message .= "					</table>\n";
 $message .= "				</div></div>\n";
