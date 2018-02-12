@@ -147,9 +147,9 @@ if (mysql_num_rows($re) > 0) {
 							<li>
 								<a href="rooms.php">Rooms</a>
 							</li>
-							<li>
+							<!-- <li>
 								<a href="cottages.php">Cottages</a>
-							</li>
+							</li> -->
 						</ul>
 					</li>
 					<li class="treeview active">

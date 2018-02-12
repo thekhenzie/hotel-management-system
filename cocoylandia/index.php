@@ -86,9 +86,9 @@ $userRow = mysql_fetch_array($res);
                         <li>
                             <a href="rooms.php">Rooms</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="cottages.php">Cottages</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="contact.html">Contact</a>
                         </li>

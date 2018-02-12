@@ -73,9 +73,9 @@ session_start();
                             <li>
                                 <a href="rooms.php">Rooms</a>
                             </li>
-                            <li class="current-menu-item">
+                            <!-- <li class="current-menu-item">
                                 <a href="cottages.php">Cottages</a>
-                            </li>
+                            </li> -->
                             <li >
                                 <a href="contact.html">Contact</a>
                             </li>

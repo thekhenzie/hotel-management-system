@@ -81,9 +81,9 @@ $res = mysql_query($query);
                             <li class="current-menu-item">
                                 <a href="room-5.php">Rooms</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="cottages.php">Cottages</a>
-                            </li>
+                            </li> -->
                             <li >
                                 <a href="contact.html">Contact</a>
                             </li>

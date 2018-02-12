@@ -117,9 +117,9 @@ if(isset($_POST['signUp'])) {
                         <li>
                             <a href="rooms.php">Rooms</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="cottages.php">Cottages</a>
-                        </li>
+                        </li> -->
                         <li class="current-menu-item">
                             <a href="contact.html">Contact</a>
                         </li>
