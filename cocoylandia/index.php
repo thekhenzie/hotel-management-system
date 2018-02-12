@@ -224,8 +224,10 @@ $userRow = mysql_fetch_array($res);
 	function validateForm(form) {
 		var checkIn = form.checkIn.value;
 		var checkOut = form.checkOut.value;
-		var totalAdults = form.totalAdults.value;
-		var totalChildren = form.totalChildren.value;
+        if(checkIn  > checkOut){ 
+	    alert("Check-out date must be after check-in date!");
+        return false;
+        }
 	}
     </script>
 
