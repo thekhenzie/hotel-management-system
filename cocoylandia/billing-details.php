@@ -253,16 +253,16 @@ console_log($_SESSION);
                                                     <label>First Name
                                                         <sup>*</sup>
                                                     </label>
-                                                    <input required class="input-text" name="firstname" pattern="[A-Za-z]{3,}" type="text" value="<?php if (isset($_SESSION['firstname']) && !empty($_SESSION['firstname'])) {echo $_SESSION['firstname'];}?>"
-                                                        pattern="[a-zA-Z\s]+" Title="Only alphabet characters are allowed" placeholder="e.g. Juan"
+                                                    <input required class="input-text" name="firstname" pattern="[A-Za-z]{1,20}" onkeypress="return blockSpecialChar(event)" type="text" value="<?php if (isset($_SESSION['firstname']) && !empty($_SESSION['firstname'])) {echo $_SESSION['firstname'];}?>"
+                                                        pattern="[a-zA-Z\s]+" Title="Max 20 characters" placeholder="e.g. Juan"
                                                     />
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label>Last Name
                                                         <sup>*</sup>
                                                     </label>
-                                                    <input required class="input-text" name="lastname" pattern="[A-Za-z]{3,}" type="text" value="<?php if (isset($_SESSION['lastname']) && !empty($_SESSION['lastname'])) {echo $_SESSION['lastname'];}?>"
-                                                        pattern="[a-zA-Z\s]+" Title="Only alphabet characters allowed" placeholder="e.g. Dela Cruz"
+                                                    <input required class="input-text" name="lastname" pattern="[A-Za-z]{1,20}" onkeypress="return blockSpecialChar(event)" type="text" value="<?php if (isset($_SESSION['lastname']) && !empty($_SESSION['lastname'])) {echo $_SESSION['lastname'];}?>"
+                                                        pattern="[a-zA-Z\s]+" Title="Max 20 characters" placeholder="e.g. Dela Cruz"
                                                     />
                                                 </div>
                                             </div>
@@ -270,11 +270,11 @@ console_log($_SESSION);
                                             <label>Address Line 1
                                                 <sup>*</sup>
                                             </label>
-                                            <input required class="input-text" name="addressline1" type="text" value="<?php if (isset($_SESSION['addressline1']) && !empty($_SESSION['addressline1'])) {echo $_SESSION['addressline1'];}?>"
+                                            <input required class="input-text" name="addressline1" pattern=".{1,50}" maxlength="50" type="text" Title="Max 50 characters" value="<?php if (isset($_SESSION['addressline1']) && !empty($_SESSION['addressline1'])) {echo $_SESSION['addressline1'];}?>"
                                                 placeholder="" />
                                             <label>Address Line 2
                                             </label>
-                                            <input class="input-text" name="addressline2" type="text" value="<?php if (isset($_SESSION['addressline2']) && !empty($_SESSION['addressline2'])) {echo $_SESSION['addressline2'];}?>"
+                                            <input class="input-text" name="addressline2" maxlength="50" pattern=".{1,50}" type="text" Title="Max 50 characters" value="<?php if (isset($_SESSION['addressline2']) && !empty($_SESSION['addressline2'])) {echo $_SESSION['addressline2'];}?>"
                                                 placeholder="" / />
 
                                             <div class="row">
@@ -437,6 +437,13 @@ for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
                 }
 
             }
+        </script>
+        <script type="text/javascript">
+        function blockSpecialChar(e){
+        var k;
+        document.all ? k = e.keyCode : k = e.which;
+        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 );
+        }
         </script>
         <script>
             $(function() {
