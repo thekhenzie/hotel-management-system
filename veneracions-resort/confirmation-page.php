@@ -10,7 +10,7 @@ if (!isset($_SESSION['checkin_date'])) {
     <head>
         <meta charset="utf-8">
         <!-- TITLE -->
-        <title>Reservation Step 5</title>
+        <title>Confirmation Page </title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="format-detection" content="telephone=no">
@@ -183,12 +183,6 @@ if (!isset($_SESSION['checkin_date'])) {
                                                     <?php echo array_sum($_SESSION['roomqty']); ?>
                                                 </span>
                                             </li>
-                                            <li>
-                                                <span>Total Guests</span>
-                                                <span>
-                                                    <?php echo array_sum($_SESSION['guestqty']); ?>
-                                                </span>
-                                            </li>
                                         </ul>
 
                                     </div>
@@ -286,7 +280,6 @@ for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
 			<div class="large-12 columns" >
 
 
-PAYPAL
 <form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' name='form'>
     <input type='hidden' name='business' value='montalban.waterpark@gmail.com'>
     <input type='hidden' name='cmd' value='_xclick'>
@@ -302,6 +295,8 @@ PAYPAL
 	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
 <br/>
+<p><b>BANK DETAILS</b> <br/><b>ACCOUNT NAME:</b> Montalban Waterpark and Garden Resort Inc. <br/>
+<b>ACCOUNT NUMBER: </b>2210309294</p>
 <a class='pull-right' href='printpage.php' target="_blank">Click here to print</a><br/>
 
 

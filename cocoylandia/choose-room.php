@@ -31,7 +31,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
 <head>
     <meta charset="utf-8">
     <!-- TITLE -->
-    <title>Reservation Step</title>
+    <title>Choose Room</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">

@@ -41,7 +41,6 @@ session_start();
                                                         <br>" . $_SESSION['addressline1'] . ", " . $_SESSION['addressline2']
 . "
                                                         <br>" . $_SESSION['postcode'] . " " . $_SESSION['city'] . ",
-                                                        <br>" . $_SESSION['state'] . ", " . $_SESSION['country'] . "
                                                         <br>Phone
                                                         <b>" . $_SESSION['phone'] . "</b>
                                                         <br>Email
@@ -103,7 +102,8 @@ session_start();
 								</tr>
 								<tr>
 									<td>
-										<br><br>Montalbans Waterpark resort address here
+										<br><p><b>BANK DETAILS</b> <br/><b>ACCOUNT NAME:</b> Montalban Waterpark and Garden Resort Inc. <br/>
+                                        <b>ACCOUNT NUMBER: </b>2210309294</p>
 									</td>
 								</tr>
 							</table>
@@ -113,7 +113,7 @@ session_start();
 				<div class='footer'>
 					<table width='100%'>
 						<tr>
-							<td><br>Questions? Email <a href='mailto: '>testing.envel@gmail.com</a> or Call Us at 0000000</td>
+							<td><br>Questions? Email <a href='mailto: '>testing.montalban@gmail.com</a> or Call Us at 0000000</td>
 						</tr>
 					</table>
 				</div></div>

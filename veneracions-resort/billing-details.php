@@ -45,7 +45,7 @@ console_log($_SESSION);
     <head>
         <meta charset="utf-8">
         <!-- TITLE -->
-        <title>Reservation Step 5</title>
+        <title>Billing Details</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="format-detection" content="telephone=no">
@@ -216,12 +216,6 @@ console_log($_SESSION);
                                                 <span>
                                                     <?php echo array_sum($_SESSION['roomqty']); ?> of
                                                     <?php echo array_sum($_SESSION['roomqty']); ?>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <span>Total Guests</span>
-                                                <span>
-                                                    <?php echo array_sum($_SESSION['guestqty']); ?>
                                                 </span>
                                             </li>
                                         </ul>

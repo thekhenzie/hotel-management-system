@@ -42,7 +42,6 @@ session_start();
                                                         <br>" . $_SESSION['addressline1'] . ", " . $_SESSION['addressline2']
 . "
                                                         <br>" . $_SESSION['postcode'] . " " . $_SESSION['city'] . ",
-                                                        <br>" . $_SESSION['state'] . ", " . $_SESSION['country'] . "
                                                         <br>Phone
                                                         <b>" . $_SESSION['phone'] . "</b>
                                                         <br>Email
@@ -89,7 +88,7 @@ session_start();
 					<br>Notes & Policy:</b>
 
 															<br>
-															<b>1. Please pay 15% deposit to confirmed your booking.</b><br>
+															<b>1. Please pay 20% deposit to confirmed your booking.</b><br>
 															2. This hotel are not allowed etc etc<br>
 															3. Please check in before bla bla<br>
 															4. The hotel management has right to cancel the booking
@@ -104,7 +103,8 @@ session_start();
 								</tr>
 								<tr>
 									<td>
-										<br><br>Montalbans Waterpark resort address here
+										<br><p><b>BANK DETAILS</b> <br/><b>ACCOUNT NAME:</b> Montalban Waterpark and Garden Resort Inc. <br/>
+                                        <b>ACCOUNT NUMBER: </b>2210309294</p>
 									</td>
 								</tr>
 							</table>
@@ -114,7 +114,7 @@ session_start();
 				<div class='footer'>
 					<table width='100%'>
 						<tr>
-							<td><br>Questions? Email <a href='mailto: '>testing.envel@gmail.com</a> or Call Us at 0000000</td>
+							<td><br>Questions? Email <a href='mailto: '>testing.cocoylandia@gmail.com</a> or Call Us at 0000000</td>
 						</tr>
 					</table>
 				</div></div>
