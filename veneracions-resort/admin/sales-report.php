@@ -291,7 +291,7 @@ if (mysql_num_rows($re) > 0) {
                                                     </tbody>
                                                 </table>
                                                 <?php
-                                                $row = mysql_fetch_array(mysql_query("SELECT SUM(amount_paid) FROM booking AND isCocoylandia=0"));
+                                                $row = mysql_fetch_array(mysql_query("SELECT SUM(amount_paid) FROM booking WHERE isCocoylandia=0"));
                                                 echo '<h5>TOTAL: ₱ <b>'.number_format(array_sum($row)).'</b></h5>' 
                                                 ?>
                                             </div>
