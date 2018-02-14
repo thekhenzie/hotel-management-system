@@ -17,7 +17,7 @@ if (mysql_num_rows($re) > 0) {
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Montalban Waterpark | Reports</title>
+	<title>Montalban Waterpark | Sales Report</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -225,7 +225,7 @@ if (mysql_num_rows($re) > 0) {
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <a class="btn btn-primary">Print Report</a>
+                                
                             </div>
                             <div class="panel-body">
                                 <div id="tabs">
@@ -547,7 +547,7 @@ if (mysql_num_rows($re) > 0) {
                                                 </div>
                                                 <br><div class="col-md-5 col-md-offset-5"><button class="btn btn-success" type="submit" name="generateReportCustom">Generate</button></div></form>
                                                 <br/><br/><div class="table-responsive">
-                                                <table class="table table-striped" id="weeklytable">
+                                                <table class="table table-striped" id="customtable">
                                                     <thead>
                                                         <tr>
                                                             <th>Reservation Code</th>
@@ -639,11 +639,42 @@ if (mysql_num_rows($re) > 0) {
 	<!-- ./wrapper -->
     <script type="text/javascript">
     $(document).ready(function() {
-        $('#alltable').DataTable();
-        $('#annualtable').DataTable();
-        $('#monthlytable').DataTable();
-        $('#weeklytable').DataTable();
-        $('#dailytable').DataTable();
+        $('#alltable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+        $('#annualtable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+        $('#monthlytable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+        $('#weeklytable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+        $('#dailytable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+        $('#customtable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
         
     });
 

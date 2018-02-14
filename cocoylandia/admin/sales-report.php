@@ -17,7 +17,7 @@ if (mysql_num_rows($re) > 0) {
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Cocoylandia Family Resort | Reports</title>
+	<title>Cocoylandia Family Resort | Sales Report</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -38,13 +38,34 @@ if (mysql_num_rows($re) > 0) {
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jqc-1.12.3/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.css"/>
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+    
+   
+
+    
+    
 	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.3/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.js"></script>
 
 	<!-- Include Date Range Picker -->
 	<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
     
+    <script type="text/javascript" src="table-export/tableExport.js">
+    <script type="text/javascript" src="table-export/jquery.base64.js">
+
+
+    PNG Export
+    <script type="text/javascript" src="table-export/html2canvas.js">
+
+    PDF Export
+    <script type="text/javascript" src="table-export/jspdf/libs/sprintf.js">
+    <script type="text/javascript" src="table-export/jspdf/jspdf.js">
+    <script type="text/javascript" src="table-export/jspdf/libs/base64.js">
+
     <!-- fancyBox files -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
@@ -544,7 +565,7 @@ if (mysql_num_rows($re) > 0) {
                                                 </div>
                                                 <br><div class="col-md-5 col-md-offset-5"><button class="btn btn-success" type="submit" name="generateReportCustom">Generate</button></div></form>
                                                 <br/><br/><div class="table-responsive">
-                                                <table class="table table-striped" id="weeklytable">
+                                                <table class="table table-striped" id="customtable">
                                                     <thead>
                                                         <tr>
                                                             <th>Reservation Code</th>
@@ -636,11 +657,42 @@ if (mysql_num_rows($re) > 0) {
 	<!-- ./wrapper -->
     <script type="text/javascript">
     $(document).ready(function() {
-        $('#alltable').DataTable();
-        $('#annualtable').DataTable();
-        $('#monthlytable').DataTable();
-        $('#weeklytable').DataTable();
-        $('#dailytable').DataTable();
+        $('#alltable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+        $('#annualtable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+        $('#monthlytable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+        $('#weeklytable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+        $('#dailytable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+        $('#customtable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
         
     });
 
