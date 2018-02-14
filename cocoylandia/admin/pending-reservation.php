@@ -240,7 +240,11 @@ if (mysql_num_rows($re) > 0) {
                                                 <td>'.$row['checkout_date'].'</td>
 												<td>'.$row['booking_date'].'</td>         
 												<td>
-												<a href="adminconfirmreservation.php?booking_id='.$row['booking_id'].'"class="btn btn-primary confirmbtn">Confirm</a>&nbsp;&nbsp; 
+												';
+												if(strtolower($row['payment_status'])=='fully paid'){
+													echo'<a href="adminconfirmreservation.php?booking_id='.$row['booking_id'].'"class="btn btn-primary confirmbtn">Confirm</a>&nbsp;&nbsp;';
+												}
+												echo '
 												<a href="admincancelreservation.php?booking_id='.$row['booking_id'].'"class="btn btn-danger deletebtn">Delete</a>&nbsp;&nbsp;
 												';
 												if(strtolower($row['payment_status'])=='fully paid'){

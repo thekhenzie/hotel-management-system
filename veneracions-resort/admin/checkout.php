@@ -14,7 +14,8 @@ $booking_id = $_GET['booking_id'];
 include './auth.php';
 $sql = "UPDATE booking SET isActive =2, isCancelled=0 WHERE booking_id=" . $booking_id . "";
 $result = mysql_query($sql);
-
+$delete = "DELETE FROM roombook WHERE booking_id=".$booking_id. "";
+$deleteResult = mysql_query($delete);
 header('Refresh: 2; url=starter.php');
 echo "<!DOCTYPE html>\n";
 echo "<html lang=\"en\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n";
