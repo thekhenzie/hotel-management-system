@@ -87,7 +87,7 @@ console_log($_SESSION);
         <div id="page-wrap">
 
             <!-- HEADER -->
-            <header id="header" class="header-v2">
+            <header id="header" class="header">
 
 
                 <!-- HEADER LOGO & MENU -->

@@ -115,7 +115,7 @@ $userRow = mysql_fetch_array($res);
             <div id="slider-revolution">
                 <ul>
                     <li data-transition="fade">
-                        <img src="images/slider/img-1.jpg" data-bgposition="left center" data-duration="14000" data-bgpositionend="right center"
+                        <img src="img/cocoyh.jpg" data-bgposition="left center" data-duration="14000" data-bgpositionend="right center"
                             alt="">
 
                         <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="100" data-speed="700" data-start="1500"
@@ -136,7 +136,7 @@ $userRow = mysql_fetch_array($res);
                     </li>
 
                     <li data-transition="fade">
-                        <img src="images/slider/img-1.jpg" data-bgposition="left center" data-duration="14000" data-bgpositionend="right center"
+                        <img src="img/cocoyhome.jpg" data-bgposition="left center" data-duration="14000" data-bgpositionend="right center"
                             alt="">
 
                         <div class="tp-caption sft fadeout" data-x="center" data-y="195" data-speed="700" data-start="1300" data-easing="easeOutBack">
@@ -178,7 +178,7 @@ $userRow = mysql_fetch_array($res);
                 <div class="check-availability">
                     <div class="row">
                         <div class="col-md-3">
-                            <h2>ROOMS & RATES</h2>
+                            <h2>CHECK AVAILABILITY</h2>
                         </div>
                         <form name="form" action="choose-room.php" method="post" onSubmit="return validateForm(this);">
                         <div class="col-md-9">

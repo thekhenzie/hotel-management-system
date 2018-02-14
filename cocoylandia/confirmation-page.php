@@ -295,7 +295,9 @@ for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
 	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
 <br/>
-<p><b>BANK DETAILS</b> <br/><b>ACCOUNT NAME:</b> Cocoylandia Family Resort <br/>
+<p><b>BANK DETAILS</b> <br/>
+<b>BANK:</b> Banco de Oro (BDO) <br/>
+<b>ACCOUNT NAME:</b> Montalban Waterpark and Garden Resort Inc. <br/>
 <b>ACCOUNT NUMBER: </b>2210309294</p>
 <a class='pull-right' href='printpage.php' target="_blank">Click here to print</a><br/>
 

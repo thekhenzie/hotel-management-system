@@ -88,9 +88,18 @@ session_start();
 
 															<br>
 															<b>1. Please pay 20% deposit to confirm your booking.</b><br>
-															2. This hotel are not allowed etc etc<br>
-															3. Please check in before bla bla<br>
-															4. The hotel management has right to cancel the booking
+															   2. Firearm and deadly weapons are strictly not allowed.<br>
+															   3. All children must be under adult supervision at all times.<br>
+															   4. The Management shall not be held responsible for the injury or incident of our guests; nor for the loss of valuables and belongings.<br>
+															   5. All damages to our properties will be charged accordingly.<br>
+															   6. The Management reserves the right to refuse any guest.<br>
+															   7. Always wear proper swimming attire. Maong short and colored T-shirts are not allowed.<br>
+															   7. Everyone is required to take a shower before swimming.<br>
+															   8. Strictly NO Bottled drinks are allowed. Corkage fee applied.<br>
+															   9. NO littering. Please keep your tables & cottages tidy and clean.<br>
+															   10.Rough playing & other misbehaviors that could result to injuries or annoyance are strictly prohibited.<br>
+															   11.Strictly NO eating, drinking & smoking in pool area.<br>
+															   12.Vandalism is a crime punishable by law.
 															<br>
 
 												</td>
@@ -102,7 +111,10 @@ session_start();
 								</tr>
 								<tr>
 									<td>
-										<br><p><b>BANK DETAILS</b> <br/><b>ACCOUNT NAME:</b> Montalban Waterpark and Garden Resort Inc.<br/><b>ACCOUNT NUMBER: </b>2210309294</p>
+										<br><p><b>BANK DETAILS (BDO)</b> <br/>
+										<b>BANK:</b> Banco de Oro (BDO) <br/>
+										<b>ACCOUNT NAME:</b> Montalban Waterpark and Garden Resort Inc.<br/>
+										<b>ACCOUNT NUMBER: </b>2210309294</p>
 									</td>
 								</tr>
 							</table>
@@ -112,7 +124,7 @@ session_start();
 				<div class='footer'>
 					<table width='100%'>
 						<tr>
-							<td><br>Questions? Email <a href='mailto: '>testing.montalban@gmail.com</a> or Call Us at 0000000</td>
+							<td><br>Questions? Call Us at (02) 654-15-26 or (63) 933-183-9100</td>
 						</tr>
 					</table>
 				</div></div>
