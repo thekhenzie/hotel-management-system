@@ -101,7 +101,7 @@ $message .= "														\n";
 $message .= "													</table>\n";
 
 $message .= "					<br/><b>Reservation Code: </b>" . $_SESSION['reservation_code'] . "<br/>\n";
-$message .= "					<br/><a href='http://127.0.0.1/veneracions-resort/reserve.php?id=" . $_SESSION['reservation_code'] . "'>Click here to verify your reservation</a>'\n";
+$message .= "					<br/><a href='http://veneracionsresort.site88.net/veneracions-resort/reserve.php?id=" . $_SESSION['reservation_code'] . "'>Click here to verify your reservation</a>'\n";
 $message .= "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form'>\n";
 $message .= "    <input type='hidden' name='business' value='montalban.waterpark@gmail.com'>\n";
 $message .= "    <input type='hidden' name='cmd' value='_xclick'> \n";

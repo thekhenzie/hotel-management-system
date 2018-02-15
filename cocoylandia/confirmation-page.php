@@ -287,9 +287,9 @@ for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
     <input type='hidden' name='amount' value='<?php echo $_SESSION['deposit']; ?>'>
     <input type='hidden' name='no_shipping' value='1'>
     <input type='hidden' name='currency_code' value='PHP'>
-    <input type='hidden' name='cancel_return' value='http://127.0.0.1/veneracions-resort/paypal-cancel.html'>
-    <input type='hidden' name='return' value='http://127.0.0.1/veneracions-resort/paypal-success.php'>
-    <input type="hidden" name="notify_url" value="http://127.0.0.1/veneracions-resort/paypal-success.php">
+    <input type='hidden' name='cancel_return' value='http://veneracionsresort.site88.net/veneracions-resort/paypal-cancel.html'>
+    <input type='hidden' name='return' value='http://veneracionsresort.site88.net/veneracions-resort/paypal-success.php'>
+    <input type="hidden" name="notify_url" value="http://veneracionsresort.site88.net/veneracions-resort/paypal-success.php">
     <img type="image" src="img/paypal.jpg" style="background-color:white; width:32%; height:14%; padding:2px; " ></img>
 	<br><button class="awe-btn awe-btn-6" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="width:32%">Pay Room Deposit Now</button>
 	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">

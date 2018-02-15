@@ -48,7 +48,7 @@ foreach ($_SESSION['room_id'] as &$value0) {
 $to = $_SESSION['email'];
 $subject = "Booking Confirmation";
 $message = "<html><body>";
-$message = "<a href='http://127.0.0.1/veneracions-resort/reserve.php?id=" . $_SESSION['reservation_code'] . "'>Click here to verify your reservation</a>";
+$message = "<a href='http://veneracionsresort.site88.net/veneracions-resort/reserve.php?id=" . $_SESSION['reservation_code'] . "'>Click here to verify your reservation</a>";
 $message .= "				<div class=\"footer\">\n";
 $message .= "					<table width=\"100%\">\n";
 $message .= "						<tr>\n";
