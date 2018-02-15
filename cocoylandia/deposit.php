@@ -87,7 +87,7 @@ if (isset($_POST['submitCode'])) {
     <div id="page-wrap">
 
         <!-- HEADER -->
-         <header id="header" class="header">
+         <header id="header" class="header-v2">
 
 
             <!-- HEADER LOGO & MENU -->

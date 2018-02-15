@@ -52,7 +52,7 @@ session_start();
     <div id="page-wrap">
 
         <!-- HEADER -->
-         <header id="header" class="header">
+         <header id="header" class="header-v2">
             
             
             <!-- HEADER LOGO & MENU -->
