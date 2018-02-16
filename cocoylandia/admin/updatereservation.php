@@ -15,7 +15,7 @@ if (isset($_POST['booking_id']) && !empty($_POST['booking_id'])) {
     $booking_id = $_POST['booking_id'];
     $firstname = $_POST['first_name'];
     $lastname = $_POST['last_name'];
-    $result = mysql_query("UPDATE booking SET first_name = '".$firstname."', last_name = '".$lastname."' WHERE booking_id='" . $booking_id . "'");
+    $result = mysql_query("UPDATE booking SET first_name = '".$firstname."', last_name = '".$lastname."', isModified=1 WHERE booking_id='" . $booking_id . "'");
     echo mysql_error();
     header('Refresh: 3;url=starter.php');
     echo "<!DOCTYPE html>\n";
