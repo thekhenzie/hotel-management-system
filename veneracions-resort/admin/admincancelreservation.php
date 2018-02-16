@@ -16,9 +16,10 @@ header("location: index.htm");
 
 $booking_id = $_GET['booking_id'];
 include './auth.php';
-$sql = "UPDATE booking SET isCancelled =1 WHERE booking_id=".$booking_id."";
+$sql = "UPDATE booking SET isCancelled =1, payment_status='Cancelled' WHERE booking_id=".$booking_id."";
 $result = mysql_query($sql);
-
+$delete = "DELETE FROM roombook WHERE booking_id=".$booking_id. "";
+$deleteResult = mysql_query($delete);
 header('Refresh: 2; url=pending-reservation.php');
 echo "<!DOCTYPE html>\n";
 echo "<html lang=\"en\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n";
