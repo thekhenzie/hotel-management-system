@@ -186,6 +186,7 @@ echo '
                 <h1>SUC<span>CESS</span>
                 </h1>
                 <h6>Your reservation has <span>been verified!</span></h6>
+                <p>Please check your email for your reservation code</p>
                 <a href="index.php"><p>Return to home.</p></a>
             </div>
 
