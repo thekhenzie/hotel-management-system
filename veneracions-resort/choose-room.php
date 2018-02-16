@@ -180,7 +180,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
                                     </div>
 
                                     <div class="check_availability-field">
-                                        <label>Depature</label>
+                                        <label>Departure</label>
                                         <?php echo $_SESSION['checkout_date']; ?>
                                     </div>
 

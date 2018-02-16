@@ -195,7 +195,7 @@ $roomRow = mysql_fetch_array($res);
                                 <div class="room-detail_form">
                                     <!-- <label>Arrive</label>
                                     <input type="text" class="awe-calendar from" placeholder="Arrive Date">
-                                    <label>Depature</label>
+                                    <label>Departure</label>
                                     <input type="text" class="awe-calendar to" placeholder="Departure Date">
                                     <button class="awe-btn awe-btn-13">Book Now</button> -->
                                 </div>
