@@ -13,7 +13,7 @@ echo mysql_error();
 if (mysql_num_rows($re) > 0) {
 } else {
     session_destroy();
-    header("location: index.htm");
+    header("location: index.html");
 }
 
 if (isset($_POST['booking_id']) && !empty($_POST['booking_id'])) {
