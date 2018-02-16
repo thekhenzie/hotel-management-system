@@ -64,7 +64,7 @@ if (mysql_num_rows($res) > 0) {
         $message .= "														\n";
         $message .= "													</table>\n";
 
-        $message .= "					<br/><b>Reservation Code: </b>" . $rows['reservation_code'] . "<br/>\n";
+        $message .= "					<br/><h3><b>Reservation Code: </b>" . $rows['reservation_code'] . "</h3><br/>\n";
         $message .= "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form'>\n";
         $message .= "    <input type='hidden' name='business' value='montalban.waterpark@gmail.com'>\n";
         $message .= "    <input type='hidden' name='cmd' value='_xclick'> \n";
@@ -82,10 +82,18 @@ if (mysql_num_rows($res) > 0) {
 
         $message .= "															<br>\n";
         $message .= "															<b>1. Please pay 20% deposit to confirm your booking.</b><br>\n";
-        $message .= "															2. This hotel are not allowed etc etc<br>\n";
-        $message .= "															3. Please check in before bla bla<br>\n";
-        $message .= "															4. The hotel management has right to cancel the booking\n";
-        $message .= "															<br>\n";
+        $message .= "															2. Firearm and deadly weapons are strictly not allowed.<br>\n";
+        $message .= "															3. All children must be under adult supervision at all times.<br>\n";
+        $message .= "															4. The Management shall not be held responsible for the injury or incident of our guests; nor for the loss of valuables and belongings.<br>\n";
+        $message .= "															5. All damages to our properties will be charged accordingly.<br>\n";
+        $message .= "															6. The Management reserves the right to refuse any guest.<br>\n";
+        $message .= "															 7. Always wear proper swimming attire. Maong short and colored T-shirts are not allowed.<br>\n";
+        $message .= "															7. Everyone is required to take a shower before swimming.<br>\n";
+        $message .= "															8. Strictly NO Bottled drinks are allowed. Corkage fee applied.<br>\n";
+        $message .= "															9. NO littering. Please keep your tables & cottages tidy and clean.<br>\n";
+        $message .= "															10.Rough playing & other misbehaviors that could result to injuries or annoyance are strictly prohibited.<br>\n";
+        $message .= "															11.Strictly NO eating, drinking & smoking in pool area.<br>\n";
+        $message .= "															12.Vandalism is a crime punishable by law.<br>\n";
         $message .= "															\n";
         $message .= "												</td>\n";
         $message .= "											</tr>\n";
@@ -106,7 +114,7 @@ if (mysql_num_rows($res) > 0) {
         $message .= "				<div class=\"footer\">\n";
         $message .= "					<table width=\"100%\">\n";
         $message .= "						<tr>\n";
-        $message .= "							<td><br>Questions? Email <a href=\"mailto:\">testing.cocoylandia@yopmail.com or Call Us at 0000000</a></td>\n";
+        $message .= "							<td><br>Questions? Call Us at (02) 654-15-26 or (63) 933-183-9100</td>\n";
         $message .= "						</tr>\n";
         $message .= "					</table>\n";
         $message .= "				</div></div>\n";

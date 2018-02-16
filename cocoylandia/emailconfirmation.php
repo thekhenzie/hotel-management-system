@@ -52,7 +52,7 @@ $message = "<a href='http://veneracionsresort.site88.net/cocoylandia/reserve.php
 $message .= "				<div class=\"footer\">\n";
 $message .= "					<table width=\"100%\">\n";
 $message .= "						<tr>\n";
-$message .= "							<td><br><br>Questions? Email <a href=\"mailto:\">testing.cocoylandia@yopmail.com or Call Us at 0000000</a></td>\n";
+$message .= "							<td><br><br>Questions? Call Us at (02) 654-15-26 or (63) 933-183-9100</td>\n";
 $message .= "						</tr>\n";
 $message .= "					</table>\n";
 $message .= "				</div></div>\n";
