@@ -253,7 +253,7 @@ console_log($_SESSION);
                                                     <label>First Name
                                                         <sup>*</sup>
                                                     </label>
-                                                    <input required class="input-text" name="firstname" pattern="[A-Za-z]{1,20}" onkeypress="return blockSpecialChar(event)" type="text" value="<?php if (isset($_SESSION['firstname']) && !empty($_SESSION['firstname'])) {echo $_SESSION['firstname'];}?>"
+                                                    <input required class="input-text" name="firstname" pattern="[A-Za-z]{1,50}" onkeypress="return blockSpecialChar(event)" type="text" value="<?php if (isset($_SESSION['firstname']) && !empty($_SESSION['firstname'])) {echo $_SESSION['firstname'];}?>"
                                                         pattern="[a-zA-Z\s]+" Title="Max 20 characters" placeholder="e.g. Juan"
                                                     />
                                                 </div>
@@ -261,7 +261,7 @@ console_log($_SESSION);
                                                     <label>Last Name
                                                         <sup>*</sup>
                                                     </label>
-                                                    <input required class="input-text" name="lastname" pattern="[A-Za-z]{1,20}" onkeypress="return blockSpecialChar(event)" type="text" value="<?php if (isset($_SESSION['lastname']) && !empty($_SESSION['lastname'])) {echo $_SESSION['lastname'];}?>"
+                                                    <input required class="input-text" name="lastname" pattern="[A-Za-z]{1,50}" onkeypress="return blockSpecialChar(event)" type="text" value="<?php if (isset($_SESSION['lastname']) && !empty($_SESSION['lastname'])) {echo $_SESSION['lastname'];}?>"
                                                         pattern="[a-zA-Z\s]+" Title="Max 20 characters" placeholder="e.g. Dela Cruz"
                                                     />
                                                 </div>
