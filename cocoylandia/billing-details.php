@@ -290,7 +290,7 @@ console_log($_SESSION);
                                                     <label>Zip/Postcode
                                                         <sup>*</sup>
                                                     </label>
-                                                    <input required class="input-text" name="postcode" id="postcode" type="number" pattern=".{4,4}" value="<?php if (isset($_SESSION['postcode']) && !empty($_SESSION['postcode'])) {echo $_SESSION['postcode'];}?>"
+                                                    <input class="input-text" name="postcode" id="postcode" type="number" pattern=".{4,4}" value="<?php if (isset($_SESSION['postcode']) && !empty($_SESSION['postcode'])) {echo $_SESSION['postcode'];}?>"
                                                         placeholder="e.g. 1600" / />
                                                 </div>
                                             </div>
