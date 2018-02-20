@@ -185,7 +185,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
                                     </div>
 
                                     <form action="sessiondestroy.php" method="post">
-                                    <button class="awe-btn awe-btn-13" type='submit'>EDIT RESERVATION</button>
+                                    <button class="awe-btn awe-btn-13" type='submit'>EXIT RESERVATION</button>
                                     </form>
                                 </div>
 
@@ -247,7 +247,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
                                                                     <div class="reservation-room_desc">
                                                                         <p>' . $sub_row['descriptions'] . '</p>
                                                                     </div><p></p>
-                                                                    <b><span class="reservation-room_amout">' . $row['availableroom'] . ' room available</span></b>
+                                                                    <b><span class="reservation-room_amout">' . $row['availableroom'] . ' room(s) available</span></b>
                                                                     <div class="clear"></div>
                                                                     <p class="reservation-room_price">
                                                                         <span class="reservation-room_amout">₱ ' . $sub_row['rate'] . '</span> / days
@@ -284,7 +284,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
                                                             <div class="reservation-room_desc">
                                                                 <p>' . $sub_row2['descriptions'] . '</p>
                                                             </div><p></p>
-                                                            <b><span class="reservation-room_amout">' . $sub_row2['total_room'] . ' room available</span></b>
+                                                            <b><span class="reservation-room_amout">' . $sub_row2['total_room'] . ' room(s) available</span></b>
                                                             <div class="clear"></div>
                                                             <p class="reservation-room_price">
                                                                 <span class="reservation-room_amout">₱ ' . $sub_row2['rate'] . '</span> / days
