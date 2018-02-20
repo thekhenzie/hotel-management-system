@@ -5,7 +5,6 @@
 	[]Redesign reservation summary/email confirmation
 	[]Redesign report -> Header(Name of company, ) footer
 	[]Entrance fee -> 
-2. Length name atleast 50
 3. Pending and waiting for confirmation - make it a single process.
 4. Expiry date for unpaid bookings. -> 3days after naserve. PRINTPAGE, PENDING. Automatic cancellation if expired.
 5. Smaller clock
