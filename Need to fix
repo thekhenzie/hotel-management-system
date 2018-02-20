@@ -1,0 +1,55 @@
+1. Reservation
+	[]No of Guest
+	[]Room Capacity
+	[]Tax Breakdown -> Move tax below the selected rooms.
+	[]Redesign reservation summary/email confirmation
+	[]Redesign report -> Header(Name of company, ) footer
+	[]Entrance fee -> 
+2. Length name atleast 50
+3. Pending and waiting for confirmation - make it a single process.
+4. Expiry date for unpaid bookings. -> 3days after naserve. PRINTPAGE, PENDING. Automatic cancellation if expired.
+5. Smaller clock
+6. Rooms and cottages should be submenus
+7. Remove/eplace with exit reservation/Remove edit reservation.
+9. include (s) on room CHOOSE-ROOM
+10. 
+9. Checkout STARTER
+	[]Room status -> Status of the room e.g Damaged, Good condition
+	[]Checkout time 
+	[]availed amenities
+10. Checkin STARTER
+	[]Room details 
+	[]Guest details -> Phone number
+	[]Availed amenities
+	[]Incorrect modify button
+	[]Check in time
+	[]validate chosen dates. -> On this day
+11. Reports
+	[]Include appropriate parts, footer, and header. PRINTPAGE
+	[]Room/amenities, customer report
+13. Dashboard
+	[]List of available and occupied rooms
+15. Account management module
+	Admin/receptionist
+16. Walk in Module
+	-Choose departure date
+	-Choose rooms
+	-Billing details
+	-Redirect to pending 
+17. Validations
+	[]20% deposit 
+	[]login after payment 
+	[]installment amount paid 
+	[]check-in date
+
+Booking id, add aesthetics
+
+Add amenities module
+Added amenities
+Amenties module.
+	Name, Qty, Price
+
+
+Zipcode not required
+Phone input masking
+
