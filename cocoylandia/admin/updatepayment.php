@@ -8,12 +8,12 @@ function console_log($data)
     echo '</script>';
 }
 
-$re = mysql_query("SELECT * from admin where username = '" . $_SESSION['username'] . "'  AND password = '" . $_SESSION['password'] . "' ");
+$re = mysql_query("SELECT * from admin where username = '" . $_SESSION['username'] . "' AND password = '" . $_SESSION['password'] . "' ");
 echo mysql_error();
 if (mysql_num_rows($re) > 0) {
 } else {
     session_destroy();
-    header("location: index.html");
+    // header("location: index.html");
 }
 
 if (isset($_POST['booking_id']) && !empty($_POST['booking_id'])) {

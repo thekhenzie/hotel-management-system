@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include './auth.php';
 $re = mysql_query("SELECT * from admin WHERE username='" . $_SESSION['username'] . "' AND password='" . $_SESSION['password'] . "'");
 echo mysql_error();
@@ -215,15 +214,15 @@ if (mysql_num_rows($re) > 0) {
                             <a href="rooms.php" class="btn btn-primary">Back</a>
                         </div>
                         <div class="panel-body">
-                        <form method="POST" action="choose-room.php" onSubmit="return validateForm(this);">
+                        <form method="post" action="choose-room.php" onSubmit="return validateForm(this);">
                                                 <div class="row">
                                                     <div class="col-md-5">
                                                         From: 
-                                                        <input class="form-control hasDatepicker" type="text" id="rangeFrom" name="rangeFrom">
+                                                        <input class="form-control hasDatepicker" type="text" id="checkIn" name="checkIn">
                                                     </div>
                                                     <div class="col-md-5">
                                                         To: 
-                                                        <input class="form-control hasDatepicker" type="text" id="rangeTo" name="rangeTo">
+                                                        <input class="form-control hasDatepicker" type="text" id="checkOut" name="checkOut">
                                                     </div>
                                                 </div>
                                                 <br><div class="col-md-5 col-md-offset-5"><button class="btn btn-success" type="submit" name="generateReportCustom">Find Room</button></div>
@@ -250,13 +249,13 @@ if (mysql_num_rows($re) > 0) {
 	<!-- ./wrapper -->
     <script type="text/javascript">
     $(function() {
-        $('input[name="rangeFrom"]').daterangepicker({
+        $('input[name="checkIn"]').daterangepicker({
             singleDatePicker: true,
             showDropdowns: true,
             startDate: new Date(),
             minDate: new Date()
         });
-        $('input[name="rangeTo"]').daterangepicker({
+        $('input[name="checkOut"]').daterangepicker({
             singleDatePicker: true,
             showDropdowns: true,
             minDate: new Date(),
@@ -267,8 +266,8 @@ if (mysql_num_rows($re) > 0) {
     </script>
         <script>
 	function validateForm(form) {
-		var checkIn = form.rangeFrom.value;
-		var checkOut = form.rangeTo.value;
+		var checkIn = form.checkIn.value;
+		var checkOut = form.checkOut.value;
         if(checkIn  > checkOut){ 
 	    alert("Check-out date must be after check-in date!");
         return false;
