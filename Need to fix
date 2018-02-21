@@ -7,11 +7,7 @@
 	[]Entrance fee -> 
 3. Pending and waiting for confirmation - make it a single process.
 4. Expiry date for unpaid bookings. -> 3days after naserve. PRINTPAGE, PENDING. Automatic cancellation if expired.
-5. Smaller clock
 6. Rooms and cottages should be submenus
-7. Remove/eplace with exit reservation/Remove edit reservation.
-9. include (s) on room CHOOSE-ROOM
-10. 
 9. Checkout STARTER
 	[]Room status -> Status of the room e.g Damaged, Good condition
 	[]Checkout time 
@@ -29,12 +25,7 @@
 13. Dashboard
 	[]List of available and occupied rooms
 15. Account management module
-	Admin/receptionist
-16. Walk in Module
-	-Choose departure date
-	-Choose rooms
-	-Billing details
-	-Redirect to pending 
+	Admin/receptionist 
 17. Validations
 	[]20% deposit 
 	[]login after payment 
@@ -49,6 +40,5 @@ Amenties module.
 	Name, Qty, Price
 
 
-Zipcode not required
 Phone input masking
 

@@ -26,7 +26,7 @@ if (!isset($_SESSION['room_id'])) {
     $_SESSION['deposit'] = 0;
 }
 
-$result = mysql_query("SELECT * from room WHERE isCocoylandia = 1");
+$result = mysql_query("SELECT * from room WHERE isCocoylandia = 0");
 if (mysql_num_rows($result) > 0) {
     $count = 0;
     while ($row = mysql_fetch_array($result)) {

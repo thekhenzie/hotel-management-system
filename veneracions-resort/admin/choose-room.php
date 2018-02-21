@@ -311,12 +311,12 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
             WHERE roombook.booking_id IN (SELECT
                 b.booking_id AS bookingID
             FROM booking AS b
-            WHERE isCocoylandia = 1 AND ((b.checkin_date BETWEEN '" . $datestart . "' AND '" . $dateend . "')
+            WHERE isCocoylandia = 0 AND ((b.checkin_date BETWEEN '" . $datestart . "' AND '" . $dateend . "')
             OR (b.checkout_date BETWEEN '" . $dateend . "' AND '" . $datestart . "')))
             
             GROUP BY roombook.room_id) AS br
                 ON r.room_id = br.room_id
-            WHERE isCocoylandia = 1");
+            WHERE isCocoylandia = 0");
             echo mysql_error();
             if (mysql_num_rows($result) > 0) {
                 echo '<p><b>Choose Your Room</b></p><hr class="line">';
