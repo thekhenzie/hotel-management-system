@@ -12,7 +12,6 @@ if (mysql_num_rows($re) > 0) {
 }
 
 if(isset($_POST['signUp'])) {
-		
 	$username = trim($_POST['username']);
 	$emailAddress = trim($_POST['emailAddress']);
 	$tpassword = trim($_POST['password']);
@@ -21,7 +20,7 @@ if(isset($_POST['signUp'])) {
     $contactNumber = $_POST['contactNumber'];
     $emailAddress = $_POST['emailAddress'];
     $cpassword = $_POST['cpassword'];
-
+	$isAdmin = (int)$_POST['isAdmin'];
 	$username = strip_tags($username);
 	$emailAddress = strip_tags($emailAddress);
 	$upassword = strip_tags($tpassword);
@@ -35,7 +34,7 @@ if(isset($_POST['signUp'])) {
 	
 	$count = mysql_num_rows($result); // if emailAddress not found then proceed
 	if ($count==0) {
-		$query = "INSERT INTO admin(username, emailAddress, password, firstName, lastName, contactNumber) VALUES('$username','$emailAddress','$password','$firstName','$lastName',$contactNumber)";
+		$query = "INSERT INTO admin(username, emailAddress, password, firstName, lastName, contactNumber, isAdmin) VALUES('$username','$emailAddress','$password','$firstName','$lastName',$contactNumber,$isAdmin)";
 		$res = mysql_query($query);
 		
 		if ($res) {
@@ -271,6 +270,13 @@ if(isset($_POST['signUp'])) {
                             <?php
                         }
                         ?>
+								<div class="form-group">
+                                <label for="isAdmin">Priviledge</label>
+								<select class="form-control" name="isAdmin" id="isAdmin" required>
+									<option value="1">Admin</option>
+									<option value="0" selected>Receptionist</option>									
+								</select>
+                                </div>
                                 <div class="form-group">
                                     <label for="firstName">First Name</label>
                                     <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First name" required>
@@ -294,7 +300,8 @@ if(isset($_POST['signUp'])) {
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <input type="password" class="form-control" name="password" id="password" onkeyup="check();" placeholder="Password" required>
-                                </div><div class="form-group">
+                                </div>
+								<div class="form-group">
                                     <label for="cpassword">Confirm password</label>
                                     <input type="password" class="form-control" name="cpassword" id="cpassword" onkeyup="check();" placeholder="Confirm password" required>
                                     <span id="message"></span>

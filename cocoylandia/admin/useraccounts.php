@@ -220,6 +220,7 @@ if (mysql_num_rows($re) > 0) {
                             <table class="table table-striped" id="roomtable">
                                 <thead>
                                     <tr>
+										<th>Priviledge</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Contact Number</th>
@@ -235,15 +236,21 @@ if (mysql_num_rows($re) > 0) {
                                         if (mysql_num_rows($re) > 0) {
                                             while ($row = mysql_fetch_array($re)) {
                                                 echo '
-                                                    <tr>
+													<tr>';
+												if($row['isAdmin']==1){
+												echo '<td>Admin</td>';
+
+												}
+												else{
+												echo '<td>Receptionist</td>';
+												}
+												echo'
                                                         <td>' . $row['firstName'] . '</td>
                                                         <td>' . $row['lastName'] . '</td>
                                                         <td>' . $row['contactNumber'] . '</td>
                                                         <td>' . $row['emailAddress'] . '</td>
                                                         <td>' . $row['username'] . '</td>
-                                                        <td><a class="btn btn-primary" href="profile.php">Edit</a> &nbsp;&nbsp;
-                                                        <a class="btn btn-danger deletebtn" id="deletebtn" href="deleteroom.php?room_id=' . $row['room_id'] . '">Delete</a>
-                                                        </td>
+                                                        <td><a class="btn btn-danger deletebtn" id="deletebtn" href="deleteaccount.php?adminID=' . $row['adminID'] . '">Delete</a></td>
                                                     </tr>
                                                 ';
     }

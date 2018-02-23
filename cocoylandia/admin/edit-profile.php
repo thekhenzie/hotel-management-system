@@ -10,47 +10,6 @@ if (mysql_num_rows($re) > 0) {
     session_destroy();
     header("location: index.html");
 }
-
-if(isset($_POST['signUp'])) {
-	$username = trim($_POST['username']);
-	$emailAddress = trim($_POST['emailAddress']);
-	$tpassword = trim($_POST['password']);
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $contactNumber = $_POST['contactNumber'];
-    $emailAddress = $_POST['emailAddress'];
-    $cpassword = $_POST['cpassword'];
-	$isAdmin = (int)$_POST['isAdmin'];
-	$username = strip_tags($username);
-	$emailAddress = strip_tags($emailAddress);
-	$upassword = strip_tags($tpassword);
-	
-	// password encrypt using SHA256();
-	$password = hash('sha256', $upassword);
-    // check emailAddress exist or not
- 
-	$query = "SELECT emailAddress FROM admin WHERE emailAddress='$emailAddress'";
-	$result = mysql_query($query);
-	
-	$count = mysql_num_rows($result); // if emailAddress not found then proceed
-	if ($count==0) {
-		$query = "INSERT INTO admin(username, emailAddress, password, firstName, lastName, contactNumber, isAdmin) VALUES('$username','$emailAddress','$password','$firstName','$lastName',$contactNumber,$isAdmin)";
-		$res = mysql_query($query);
-		
-		if ($res) {
-			$errTyp = "success";
-			$errMSG = "Successfully registered, you may login now";
-		} else {
-			$errTyp = "danger";
-			$errMSG = "Something went wrong, try again later...";	
-		}	
-			
-	} else {
-		$errTyp = "warning";
-		$errMSG = "Email address already in use.";
-	}
-	
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -85,7 +44,12 @@ if(isset($_POST['signUp'])) {
 	<!-- Include Date Range Picker -->
 	<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-	<!-- Google Font -->
+    
+    <!-- fancyBox files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+    
+    <!-- Google Font -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -183,6 +147,7 @@ if(isset($_POST['signUp'])) {
 							<li>
 								<a href="rooms.php">Rooms</a>
 							</li>
+
 						</ul>
 					</li>
 					<li class="treeview">
@@ -221,9 +186,6 @@ if(isset($_POST['signUp'])) {
 						</a>
 						<ul class="treeview-menu">
 							<li>
-								<a href="pending-reservation.php">Pending</a>
-							</li>
-							<li>
 								<a href="sales-report.php">Sales</a>
 							</li>
 							<li>
@@ -241,7 +203,7 @@ if(isset($_POST['signUp'])) {
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Add Account
+					Edit Account
 				</h1>
 			</section>
 
@@ -256,58 +218,46 @@ if(isset($_POST['signUp'])) {
                             <a href="useraccounts.php" class="btn btn-primary">Back</a>
                         </div>
                         <div class="panel-body">
-                            <form method="post" autocomplete="off">
-                            <?php
-                        if ( isset($errMSG) ) {
-                            
+                            <?php 
+                            $adminID= $_GET['adminID'];
+                            include './auth.php';
+                            $re = mysql_query("SELECT * from admin WHERE adminID =$adminID");
+                            if(mysql_num_rows($re)> 0){
+                                while($rows = mysql_fetch_array($re)){
+                                    echo'
+                                    <form role="form" id="formnew" action="updateroom.php" method="post" autocomplete="off" enctype="multipart/form-data">
+                                        <input type="hidden" class="form-control" name="adminID" id="adminID" placeholder="Room ID" value="' . $adminID . '" required>
+                                        <div class="form-group">
+                                            <label for="firstName">First Name</label>
+                                            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" value="' . $rows['firstName'] . '" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastName">Last Name</label>
+                                            <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name" value="' . $rows['lastName'] . '" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="occupancy">Occupancy</label>
+                                            <input type="number" class="form-control" name="occupancy" id="occupancy" placeholder="max number of occupant" value="' . $rows['occupancy'] . '">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="rate">Rate</label>
+                                            <input type="number" class="form-control" name="rate" id="rate" placeholder="Rate of the room" value="' . $rows['rate'] . '" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="desc">Descriptions</label>
+                                            <input type="text" class="form-control" name="desc" id="desc" value="' . $rows['descriptions'] . '" placeholder="">
+                                        </div>
+                                        <a data-fancybox="gallery" href="../' . $rows['imgpath'] . '"><img src="../' . $rows['imgpath'] . '" style="height:200px; width:200px; " /></a>
+                                        <div class="form-group">
+                                            <label for="img">Upload Room Image</label>
+                                            <input type="file" id="img" name="img">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Update Room Detail</button>
+                                    </form>';
+                                }
+                            }
                             ?>
-                            <div class="form-group">
-                            <div class="alert alert-dismissable alert-<?php echo ($errTyp=="success") ? "success" : $errTyp; ?>">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info"></i> <?php echo $errMSG; ?>
-                            </div>
-                            </div>
-                            <?php
-                        }
-                        ?>
-								<div class="form-group">
-                                <label for="isAdmin">Priviledge</label>
-								<select class="form-control" name="isAdmin" id="isAdmin" required>
-									<option value="1">Admin</option>
-									<option value="0" selected>Receptionist</option>									
-								</select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="firstName">First Name</label>
-                                    <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="lastName">Last Name</label>
-                                    <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="contactNumber">Contact Number</label>
-                                    <input type="number" class="form-control" name="contactNumber" id="contactNumber" placeholder="Contact number" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="emailAddress">Email Address</label>
-                                    <input type="email" class="form-control" name="emailAddress" id="emailAddress" placeholder="Email address" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="username">Username</label>
-                                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" name="password" id="password" onkeyup="check();" placeholder="Password" required>
-                                </div>
-								<div class="form-group">
-                                    <label for="cpassword">Confirm password</label>
-                                    <input type="password" class="form-control" name="cpassword" id="cpassword" onkeyup="check();" placeholder="Confirm password" required>
-                                    <span id="message"></span>
-                                </div>
-                                <button type="submit" id="submit" class="btn btn-default" name="signUp">Submit</button>
-                            </form>
+                           
                         </div>
                     </div>
                 </div>
@@ -328,21 +278,6 @@ if(isset($_POST['signUp'])) {
 
 	</div>
 	<!-- ./wrapper -->
-    <script>
-    var check = function() {
-        if (document.getElementById('password').value!=""){
-            if (document.getElementById('password').value == document.getElementById('cpassword').value) {
-            document.getElementById('message').style.color = 'green';
-            document.getElementById('message').innerHTML = 'Passwords are matched!';
-            document.getElementById('submit').disabled = false;
-        } else {
-            document.getElementById('message').style.color = 'red';
-            document.getElementById('message').innerHTML = 'Passwords are not matched!';
-            document.getElementById('submit').disabled = true;
-        }
-        }
-        
-    }
     </script>
 	<!-- REQUIRED JS SCRIPTS -->
 	<!-- Bootstrap 3.3.7 -->
