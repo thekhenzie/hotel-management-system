@@ -155,7 +155,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
 				</div>
 
 				<!-- Sidebar Menu -->
-				<ul class="sidebar-menu" data-widget="tree">
+                <ul class="sidebar-menu" data-widget="tree">
 					<li class="header">HEADER</li>
 					<!-- Optionally, you can add icons to the links -->
 					<li>
@@ -164,7 +164,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
 							<span>Dashboard</span>
 						</a>
 					</li>
-					<li class="treeview active">
+					<li class="treeview">
 						<a href="#">
 							<i class="fa fa-bed"></i>
 							<span>Accommodations</span>
@@ -175,6 +175,12 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
 						<ul class="treeview-menu">
 							<li>
 								<a href="rooms.php">Rooms</a>
+							</li>
+							<li>
+								<a href="cottages.php">Cottages</a>
+							</li>
+							<li>
+								<a href="amenities.php">Amenities</a>
 							</li>
 						</ul>
 					</li>
@@ -189,9 +195,6 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
 						<ul class="treeview-menu">
 							<li>
 								<a href="pending-reservation.php">Pending</a>
-							</li>
-							<li>
-								<a href="waiting-reservation.php">Waiting for confirmation</a>
 							</li>
 							<li>
 								<a href="checkedout-reservation.php">Checked-out</a>
@@ -214,15 +217,31 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
 						</a>
 						<ul class="treeview-menu">
 							<li>
-								<a href="pending-reservation.php">Pending</a>
-							</li>
-							<li>
 								<a href="sales-report.php">Sales</a>
 							</li>
 							<li>
 								<a href="request-report.php">Request</a>
 							</li>
 						</ul>
+					</li>
+					<li class="active">
+						<a href="add-walkin.php">
+							<i class="fa fa-link"></i>
+							<span>Walk-in Module</span>
+						</a>
+					</li>
+					<li>
+						<a href="useraccounts.php">
+							<i class="fa fa-link"></i>
+							<span>User Account Module</span>
+						</a>
+					</li>
+					<li>
+					<li>
+					<a href="../../cocoylandia/admin/starter.php">
+							<i class="fa fa-link"></i>
+							<span>Cocoylandia Admin</span>
+						</a>
 					</li>
 				</ul>
 				<!-- /.sidebar-menu -->

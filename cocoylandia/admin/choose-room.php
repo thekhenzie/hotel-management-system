@@ -164,7 +164,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
 							<span>Dashboard</span>
 						</a>
 					</li>
-					<li class="treeview active">
+					<li class="treeview">
 						<a href="#">
 							<i class="fa fa-bed"></i>
 							<span>Accommodations</span>
@@ -175,6 +175,11 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
 						<ul class="treeview-menu">
 							<li>
 								<a href="rooms.php">Rooms</a>
+							</li>
+						</ul>
+						<ul class="treeview-menu">
+							<li>
+								<a href="amenities.php">Amenities</a>
 							</li>
 						</ul>
 					</li>
@@ -191,9 +196,6 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
 								<a href="pending-reservation.php">Pending</a>
 							</li>
 							<li>
-								<a href="waiting-reservation.php">Waiting for confirmation</a>
-							</li>
-							<li>
 								<a href="checkedout-reservation.php">Checked-out</a>
 							</li>
 							<li>
@@ -202,6 +204,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
 							<li>
 								<a href="cancelled-reservation.php">Cancelled</a>
 							</li>
+							
 						</ul>
 					</li>
 					<li class="treeview">
@@ -214,15 +217,30 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
 						</a>
 						<ul class="treeview-menu">
 							<li>
-								<a href="pending-reservation.php">Pending</a>
-							</li>
-							<li>
 								<a href="sales-report.php">Sales</a>
 							</li>
 							<li>
 								<a href="request-report.php">Request</a>
 							</li>
 						</ul>
+					</li>
+					<li class="active">
+						<a href="add-walkin.php">
+							<i class="fa fa-link"></i>
+							<span>Walk-in Module</span>
+						</a>
+					</li>
+					<li>
+						<a href="useraccounts.php">
+							<i class="fa fa-link"></i>
+							<span>User Account Module</span>
+						</a>
+					</li>
+					<li>
+						<a href="../../veneracions-resort/admin/starter.php">
+							<i class="fa fa-link"></i>
+							<span>Montalban Waterpark Admin</span>
+						</a>
 					</li>
 				</ul>
 				<!-- /.sidebar-menu -->

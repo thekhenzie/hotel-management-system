@@ -159,7 +159,7 @@ if (mysql_num_rows($re) > 0) {
 							<span>Dashboard</span>
 						</a>
 					</li>
-					<li class="treeview active">
+					<li class="treeview">
 						<a href="#">
 							<i class="fa fa-bed"></i>
 							<span>Accommodations</span>
@@ -170,6 +170,11 @@ if (mysql_num_rows($re) > 0) {
 						<ul class="treeview-menu">
 							<li>
 								<a href="rooms.php">Rooms</a>
+							</li>
+						</ul>
+						<ul class="treeview-menu">
+							<li>
+								<a href="amenities.php">Amenities</a>
 							</li>
 						</ul>
 					</li>
@@ -186,9 +191,6 @@ if (mysql_num_rows($re) > 0) {
 								<a href="pending-reservation.php">Pending</a>
 							</li>
 							<li>
-								<a href="waiting-reservation.php">Waiting for confirmation</a>
-							</li>
-							<li>
 								<a href="checkedout-reservation.php">Checked-out</a>
 							</li>
 							<li>
@@ -197,6 +199,7 @@ if (mysql_num_rows($re) > 0) {
 							<li>
 								<a href="cancelled-reservation.php">Cancelled</a>
 							</li>
+							
 						</ul>
 					</li>
 					<li class="treeview">
@@ -209,15 +212,30 @@ if (mysql_num_rows($re) > 0) {
 						</a>
 						<ul class="treeview-menu">
 							<li>
-								<a href="pending-reservation.php">Pending</a>
-							</li>
-							<li>
 								<a href="sales-report.php">Sales</a>
 							</li>
 							<li>
 								<a href="request-report.php">Request</a>
 							</li>
 						</ul>
+					</li>
+					<li class="active">
+						<a href="add-walkin.php">
+							<i class="fa fa-link"></i>
+							<span>Walk-in Module</span>
+						</a>
+					</li>
+					<li>
+						<a href="useraccounts.php">
+							<i class="fa fa-link"></i>
+							<span>User Account Module</span>
+						</a>
+					</li>
+					<li>
+						<a href="../../veneracions-resort/admin/starter.php">
+							<i class="fa fa-link"></i>
+							<span>Montalban Waterpark Admin</span>
+						</a>
 					</li>
 				</ul>
 				<!-- /.sidebar-menu -->
@@ -241,7 +259,7 @@ if (mysql_num_rows($re) > 0) {
                 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <a href="rooms.php" class="btn btn-primary">Back</a>
+                            
                         </div>
                         <div class="panel-body">
                         <form method="post" action="choose-room.php" onSubmit="return validateForm(this);">

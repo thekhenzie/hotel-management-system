@@ -174,76 +174,95 @@ if (mysql_num_rows($result) > 0) {
                     </div>
 
                     <!-- Sidebar Menu -->
-                    <ul class="sidebar-menu" data-widget="tree">
-                        <li class="header">HEADER</li>
-                        <!-- Optionally, you can add icons to the links -->
-                        <li>
-                            <a href="starter.php">
-                                <i class="fa fa-link"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="treeview active">
-                            <a href="#">
-                                <i class="fa fa-bed"></i>
-                                <span>Accommodations</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="rooms.php">Rooms</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-bars"></i>
-                                <span>Reservation</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="pending-reservation.php">Pending</a>
-                                </li>
-                                <li>
-                                    <a href="waiting-reservation.php">Waiting for confirmation</a>
-                                </li>
-                                <li>
-                                    <a href="checkedout-reservation.php">Checked-out</a>
-                                </li>
-                                <li>
-                                    <a href="modified-reservation.php">Modified</a>
-                                </li>
-                                <li>
-                                    <a href="cancelled-reservation.php">Cancelled</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-bar-chart"></i>
-                                <span>Reports</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="pending-reservation.php">Pending</a>
-                                </li>
-                                <li>
-                                    <a href="sales-report.php">Sales</a>
-                                </li>
-                                <li>
-                                    <a href="request-report.php">Request</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                <ul class="sidebar-menu" data-widget="tree">
+					<li class="header">HEADER</li>
+					<!-- Optionally, you can add icons to the links -->
+					<li>
+						<a href="starter.php">
+							<i class="fa fa-link"></i>
+							<span>Dashboard</span>
+						</a>
+					</li>
+					<li class="treeview">
+						<a href="#">
+							<i class="fa fa-bed"></i>
+							<span>Accommodations</span>
+							<span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"></i>
+							</span>
+						</a>
+						<ul class="treeview-menu">
+							<li>
+								<a href="rooms.php">Rooms</a>
+							</li>
+							<li>
+								<a href="cottages.php">Cottages</a>
+							</li>
+							<li>
+								<a href="amenities.php">Amenities</a>
+							</li>
+						</ul>
+					</li>
+					<li class="treeview">
+						<a href="#">
+							<i class="fa fa-bars"></i>
+							<span>Reservation</span>
+							<span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"></i>
+							</span>
+						</a>
+						<ul class="treeview-menu">
+							<li>
+								<a href="pending-reservation.php">Pending</a>
+							</li>
+							<li>
+								<a href="checkedout-reservation.php">Checked-out</a>
+							</li>
+							<li>
+								<a href="modified-reservation.php">Modified</a>
+							</li>
+							<li>
+								<a href="cancelled-reservation.php">Cancelled</a>
+							</li>
+						</ul>
+					</li>
+					<li class="treeview">
+						<a href="#">
+							<i class="fa fa-bar-chart"></i>
+							<span>Reports</span>
+							<span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"></i>
+							</span>
+						</a>
+						<ul class="treeview-menu">
+							<li>
+								<a href="sales-report.php">Sales</a>
+							</li>
+							<li>
+								<a href="request-report.php">Request</a>
+							</li>
+						</ul>
+					</li>
+					<li class="active">
+						<a href="add-walkin.php">
+							<i class="fa fa-link"></i>
+							<span>Walk-in Module</span>
+						</a>
+					</li>
+					<li>
+						<a href="useraccounts.php">
+							<i class="fa fa-link"></i>
+							<span>User Account Module</span>
+						</a>
+					</li>
+					<li>
+					<li>
+					<a href="../../cocoylandia/admin/starter.php">
+							<i class="fa fa-link"></i>
+							<span>Cocoylandia Admin</span>
+						</a>
+					</li>
+				</ul>
                     <!-- /.sidebar-menu -->
                 </section>
                 <!-- /.sidebar -->

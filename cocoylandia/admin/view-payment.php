@@ -135,7 +135,7 @@ if (mysql_num_rows($re) > 0) {
 							<span>Dashboard</span>
 						</a>
 					</li>
-					<li class="treeview active">
+					<li class="treeview">
 						<a href="#">
 							<i class="fa fa-bed"></i>
 							<span>Accommodations</span>
@@ -147,12 +147,14 @@ if (mysql_num_rows($re) > 0) {
 							<li>
 								<a href="rooms.php">Rooms</a>
 							</li>
-							<!-- <li>
-								<a href="cottages.php">Cottages</a>
-							</li> -->
+						</ul>
+						<ul class="treeview-menu">
+							<li>
+								<a href="amenities.php">Amenities</a>
+							</li>
 						</ul>
 					</li>
-					<li class="treeview">
+					<li class="treeview active">
 						<a href="#">
 							<i class="fa fa-bars"></i>
 							<span>Reservation</span>
@@ -165,9 +167,6 @@ if (mysql_num_rows($re) > 0) {
 								<a href="pending-reservation.php">Pending</a>
 							</li>
 							<li>
-								<a href="waiting-reservation.php">Waiting for confirmation</a>
-							</li>
-							<li>
 								<a href="checkedout-reservation.php">Checked-out</a>
 							</li>
 							<li>
@@ -176,6 +175,7 @@ if (mysql_num_rows($re) > 0) {
 							<li>
 								<a href="cancelled-reservation.php">Cancelled</a>
 							</li>
+							
 						</ul>
 					</li>
 					<li class="treeview">
@@ -194,6 +194,24 @@ if (mysql_num_rows($re) > 0) {
 								<a href="request-report.php">Request</a>
 							</li>
 						</ul>
+					</li>
+					<li>
+						<a href="add-walkin.php">
+							<i class="fa fa-link"></i>
+							<span>Walk-in Module</span>
+						</a>
+					</li>
+					<li>
+						<a href="useraccounts.php">
+							<i class="fa fa-link"></i>
+							<span>User Account Module</span>
+						</a>
+					</li>
+					<li>
+						<a href="../../veneracions-resort/admin/starter.php">
+							<i class="fa fa-link"></i>
+							<span>Montalban Waterpark Admin</span>
+						</a>
 					</li>
 				</ul>
 				<!-- /.sidebar-menu -->

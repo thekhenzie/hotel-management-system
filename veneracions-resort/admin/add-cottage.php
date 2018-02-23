@@ -124,7 +124,7 @@ if (mysql_num_rows($re) > 0) {
 				<ul class="sidebar-menu" data-widget="tree">
 					<li class="header">HEADER</li>
 					<!-- Optionally, you can add icons to the links -->
-					<li>
+					<li class="active">
 						<a href="starter.php">
 							<i class="fa fa-link"></i>
 							<span>Dashboard</span>
@@ -145,6 +145,9 @@ if (mysql_num_rows($re) > 0) {
 							<li>
 								<a href="cottages.php">Cottages</a>
 							</li>
+							<li>
+								<a href="amenities.php">Amenities</a>
+							</li>
 						</ul>
 					</li>
 					<li class="treeview">
@@ -156,6 +159,12 @@ if (mysql_num_rows($re) > 0) {
 							</span>
 						</a>
 						<ul class="treeview-menu">
+							<li>
+								<a href="pending-reservation.php">Pending</a>
+							</li>
+							<li>
+								<a href="checkedout-reservation.php">Checked-out</a>
+							</li>
 							<li>
 								<a href="modified-reservation.php">Modified</a>
 							</li>
@@ -174,21 +183,31 @@ if (mysql_num_rows($re) > 0) {
 						</a>
 						<ul class="treeview-menu">
 							<li>
-								<a href="pending-reservation.php">Pending</a>
+								<a href="sales-report.php">Sales</a>
 							</li>
 							<li>
-								<a href="waiting-reservation.php">Waiting for confirmation</a>
-							</li>
-							<li>
-								<a href="checkedout-reservation.php">Checked-out</a>
-							</li>
-							<li>
-								<a href="modified-reservation.php">Modified</a>
-							</li>
-							<li>
-								<a href="cancelled-reservation.php">Cancelled</a>
+								<a href="request-report.php">Request</a>
 							</li>
 						</ul>
+					</li>
+					<li>
+						<a href="add-walkin.php">
+							<i class="fa fa-link"></i>
+							<span>Walk-in Module</span>
+						</a>
+					</li>
+					<li>
+						<a href="useraccounts.php">
+							<i class="fa fa-link"></i>
+							<span>User Account Module</span>
+						</a>
+					</li>
+					<li>
+					<li>
+					<a href="../../cocoylandia/admin/starter.php">
+							<i class="fa fa-link"></i>
+							<span>Cocoylandia Admin</span>
+						</a>
 					</li>
 				</ul>
 				<!-- /.sidebar-menu -->
