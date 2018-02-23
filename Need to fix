@@ -4,7 +4,7 @@
 	[]Tax Breakdown -> Move tax below the selected rooms.
 	[]Redesign reservation summary/email confirmation
 	[]Redesign report -> Header(Name of company, ) footer
-	[]Entrance fee -> 
+	[]Entrance fee -> ***
 4. Expiry date for unpaid bookings. -> 3days after naserve. PRINTPAGE, PENDING. Automatic cancellation if expired.
 6. Rooms and cottages should be submenus
 9. Checkout STARTER
@@ -23,8 +23,6 @@
 	[]Room/amenities, customer report
 13. Dashboard
 	[]List of available and occupied rooms
-15. Account management module
-	Admin/receptionist 
 17. Validations
 	[]20% deposit 
 	[]login after payment 
