@@ -280,7 +280,12 @@ if (mysql_num_rows($re) > 0) {
 	<!-- ./wrapper -->
     <script type="text/javascript">
     $(document).ready(function() {
-        $('#roomtable').DataTable();
+        $('#roomtable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'excel', 'pdf', 'print'
+            ]
+        });
     });
 
     $('.deletebtn').click (function () {
