@@ -234,6 +234,7 @@ if (mysql_num_rows($re) > 0) {
 									<th>Reservation Code</th>
 									<th>First Name</th>
 									<th>Last Name</th>
+									<th>Phone number</th>
 									<th>Check In</th>
 									<th>Check Out</th>
 									<th></th>
@@ -251,6 +252,7 @@ if (mysql_num_rows($re) > 0) {
 											<td>'.$row['reservation_code'].'</td>
 											<td>'.$row['first_name'].'</td>
 											<td>'.$row['last_name'].'</td>
+											<td>'.$row['telephone_no'].'</td>
 											<td>'.$row['checkin_date'].'</td>
 											<td>'.$row['checkout_date'].'</td>
 											<td>
