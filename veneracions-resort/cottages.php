@@ -69,13 +69,20 @@ session_start();
                             <li>
                                 <a href="about.html">About</a>
                             </li>
-
-                            <li>
-                                <a href="rooms.php">Rooms</a>
-                            </li>
                             <li class="current-menu-item">
-                                <a href="cottages.php">Cottages</a>
+                                <a href="#">Room
+                                    <span class="fa fa-caret-down"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="rooms.php">Rooms</a>
+                                    </li>
+                                    <li>
+                                        <a href="cottages.php">Cottages</a>
+                                    </li>
+                                </ul>
                             </li>
+                        <li>
                             <li >
                                 <a href="contact.html">Contact</a>
                             </li>
