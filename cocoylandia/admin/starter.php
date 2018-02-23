@@ -222,7 +222,7 @@ if (mysql_num_rows($re) > 0) {
 			</div> -->
 
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
+				<div class="col-md-10 col-md-offset-1">
 				<br/><h3 class="text-center">Current Reservations</h3>
 					<div class="table-responsive">
 						<table class="table table-striped" id="current">
@@ -234,6 +234,7 @@ if (mysql_num_rows($re) > 0) {
 									<th>Phone number</th>
 									<th>Check In</th>
 									<th>Check Out</th>
+									<th>Time checked-in</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -252,12 +253,14 @@ if (mysql_num_rows($re) > 0) {
 											<td>'.$row['telephone_no'].'</td>
 											<td>'.$row['checkin_date'].'</td>
 											<td>'.$row['checkout_date'].'</td>
+											<td>'.date_format(date_create($row['checkin_time']), 'h:i:s A').'</td>
 											<td>
-												<a href="edit-reservation.php?booking_id='.$row['booking_id'].'" class="btn btn-primary">Modify</a>&nbsp;&nbsp;
+												
 												<a href="checkout.php?booking_id='.$row['booking_id'].'" class="btn btn-danger checkout">Checkout</a>
 											</td>
 										</tr>
 										';
+										// <a href="edit-reservation.php?booking_id='.$row['booking_id'].'" class="btn btn-primary">Modify</a>&nbsp;&nbsp;
 								}
 							}
 							?>
@@ -265,6 +268,45 @@ if (mysql_num_rows($re) > 0) {
 						</table>
 					</div>
 				</div>
+			</div>
+			<div class="row">
+				<br/>
+				
+				<div class="col-md-8 col-md-offset-2">
+				<h3>List of Rooms</h3>
+					<div class="table-responsive">
+						<table class="table table-striped" id="roomtable">
+                                <thead>
+                                    <tr>
+                                        <th>Room Name</th>
+                                        <th>Image</th>
+                                        <th>Total Room</th>
+										<th>Available</th>
+										<th>Occupied</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+										include './auth.php';
+										$re = mysql_query("SELECT * from room WHERE isCottage=0 AND isCocoylandia = 1");
+										if (mysql_num_rows($re) > 0) {
+											while ($row = mysql_fetch_array($re)) {
+												echo '
+                                                    <tr>
+                                                        <td>' . $row['room_name'] . '</td>
+                                                        <td><a data-fancybox="gallery" href="../' . $row['imgpath'] . '"><img src="../' . $row['imgpath'] . '" style="height:50px;width:50px;"></a></td>
+                                                        <td>' . $row['total_room'] . '</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                ';
+											}
+										}
+									?>
+                                </tbody>
+                        </table>
+					</div>
+				</div>	
 			</div>
 			
 			</section>

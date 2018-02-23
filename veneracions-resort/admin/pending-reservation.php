@@ -228,7 +228,8 @@ if (mysql_num_rows($re) > 0) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php 
+								<?php 
+								date_default_timezone_set('Asia/Manila');
                                 include './auth.php';
                                 $re = mysql_query("SELECT * FROM booking WHERE isReserved = 1 AND isCancelled = 0 AND isActive = 0 AND isCocoylandia=0");
 
@@ -250,9 +251,11 @@ if (mysql_num_rows($re) > 0) {
 													<td>'.$row['booking_date'].'</td>         
 													<td>
 													';
+													if($row['checkin_date']==$today){
+														
 													if(strtolower($row['payment_status'])=='fully paid'){
 														echo'<a href="adminconfirmreservation.php?booking_id='.$row['booking_id'].'"class="btn btn-primary confirmbtn">Confirm</a>&nbsp;&nbsp;';
-													}
+													}}
 													echo '
 													<a href="admincancelreservation.php?booking_id='.$row['booking_id'].'"class="btn btn-danger deletebtn">Delete</a>&nbsp;&nbsp;
 													';

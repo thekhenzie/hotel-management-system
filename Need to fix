@@ -1,31 +1,24 @@
 1. Reservation
 	[]No of Guest
-	[]Redesign reservation summary/email confirmation
-	[]Redesign report -> Header(Name of company, ) footer
-	[]Entrance fee -> ***
-4. Expiry date for unpaid bookings. -> 3days after naserve. PRINTPAGE, PENDING. Automatic cancellation if expired.
+PRINTPAGE
 9. Checkout STARTER
 	[]Room status -> Status of the room e.g Damaged, Good condition
 	[]Checkout time 
 	[]availed amenities
-10. Checkin STARTER
+10. Checkin PENDING
 	[]Room details 
 	[]Availed amenities
-	[]Incorrect modify button
-	[]Check in time
-	[]validate chosen dates. -> On this day
-11. Reports
-	[]Include appropriate parts, footer, and header. PRINTPAGE
-	[]Room/amenities, customer report
 13. Dashboard
 	[]List of available and occupied rooms
 17. Validations
 	[]20% deposit 
 	[]login after payment 
 	[]installment amount paid 
-	[]check-in date
-
-Booking id, add aesthetics
-
 Phone input masking
 
+
+	[]Redesign report -> Header(Name of company, ) footer
+11. Reports
+	[]Include appropriate parts, footer, and header. PRINTPAGE
+	
+Booking id, add aesthetics

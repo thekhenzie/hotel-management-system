@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('Asia/Manila');
 include './auth.php';
 $re = mysql_query("SELECT * from admin where username = '".$_SESSION['username']."'  AND password = '".$_SESSION['password']."' " );
 echo mysql_error();
@@ -16,7 +17,8 @@ header("location: index.htm");
 
 $booking_id = $_GET['booking_id'];
 include './auth.php';
-$sql = "UPDATE booking SET isActive =1 WHERE booking_id=".$booking_id."";
+$today = date('Y-m-d h:i:s');
+$sql = "UPDATE booking SET isActive =1, checkin_time = '$today' WHERE booking_id=".$booking_id."";
 $result = mysql_query($sql);
 
 header('Refresh: 2; url=pending-reservation.php');
