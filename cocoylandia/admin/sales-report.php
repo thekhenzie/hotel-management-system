@@ -660,37 +660,37 @@ if (mysql_num_rows($re) > 0) {
         $('#alltable').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+                'copy', 'excel', 'pdf', 'print'
             ]
         });
         $('#annualtable').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+                'copy', 'excel', 'pdf', 'print'
             ]
         });
         $('#monthlytable').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+                'copy', 'excel', 'pdf', 'print'
             ]
         });
         $('#weeklytable').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+                'copy', 'excel', 'pdf', 'print'
             ]
         });
         $('#dailytable').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+                'copy', 'excel', 'pdf', 'print'
             ]
         });
         $('#customtable').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+                'copy', 'excel', 'pdf', 'print'
             ]
         });
         

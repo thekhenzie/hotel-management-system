@@ -4,7 +4,6 @@
 	[]Redesign report -> Header(Name of company, ) footer
 	[]Entrance fee -> ***
 4. Expiry date for unpaid bookings. -> 3days after naserve. PRINTPAGE, PENDING. Automatic cancellation if expired.
-6. Rooms and cottages should be submenus
 9. Checkout STARTER
 	[]Room status -> Status of the room e.g Damaged, Good condition
 	[]Checkout time 
