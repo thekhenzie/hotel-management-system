@@ -231,32 +231,67 @@ if (mysql_num_rows($re) > 0) {
 
                                 if(mysql_num_rows($re) > 0){
                                     while($row = mysql_fetch_array($re)){
-                                        echo '
-                                            <tr>
-                                                <td>'.$row['reservation_code'].'</td>
-                                                <td>'.$row['first_name'].'</td>
-                                                <td>'.$row['last_name'].'</td>
-                                                <td>'.$row['checkin_date'].'</td>
-                                                <td>'.$row['checkout_date'].'</td>
-												<td>'.$row['booking_date'].'</td>         
-												<td>
+										$date1 = $row['booking_date'];
+										$date = new DateTime($date1);
+										$date->add(new DateInterval('P4D')); // P1D means a period of 1 day
+										$expiry_date = $date->format('Y-m-d');
+										$today = date('Y-m-d');
+										if($expiry_date > $today){
+											echo '
+												<tr>
+													<td>'.$row['reservation_code'].'</td>
+													<td>'.$row['first_name'].'</td>
+													<td>'.$row['last_name'].'</td>
+													<td>'.$row['checkin_date'].'</td>
+													<td>'.$row['checkout_date'].'</td>
+													<td>'.$row['booking_date'].'</td>         
+													<td>
+													';
+													if(strtolower($row['payment_status'])=='fully paid'){
+														echo'<a href="adminconfirmreservation.php?booking_id='.$row['booking_id'].'"class="btn btn-primary confirmbtn">Confirm</a>&nbsp;&nbsp;';
+													}
+													echo '
+													<a href="admincancelreservation.php?booking_id='.$row['booking_id'].'"class="btn btn-danger deletebtn">Delete</a>&nbsp;&nbsp;
+													';
+													if(strtolower($row['payment_status'])=='fully paid'){
+														echo'<a href="view-payment.php?booking_id='.$row['booking_id'].'"class="btn btn-success paybtn">Paid</a>';
+													}
+													else{
+														echo'<a href="view-payment.php?booking_id='.$row['booking_id'].'"class="btn btn-default paybtn">Payment</a>';
+													}
+											echo '
+													</td>                                      
+												</tr>
 												';
-												if(strtolower($row['payment_status'])=='fully paid'){
-													echo'<a href="adminconfirmreservation.php?booking_id='.$row['booking_id'].'"class="btn btn-primary confirmbtn">Confirm</a>&nbsp;&nbsp;';
-												}
-												echo '
-												<a href="admincancelreservation.php?booking_id='.$row['booking_id'].'"class="btn btn-danger deletebtn">Delete</a>&nbsp;&nbsp;
+										}else{
+											echo '
+												<tr style="background-color:red">
+													<td>'.$row['reservation_code'].'</td>
+													<td>'.$row['first_name'].'</td>
+													<td>'.$row['last_name'].'</td>
+													<td>'.$row['checkin_date'].'</td>
+													<td>'.$row['checkout_date'].'</td>
+													<td>'.$row['booking_date'].'</td>         
+													<td>
+													';
+													if(strtolower($row['payment_status'])=='fully paid'){
+														echo'<a href="adminconfirmreservation.php?booking_id='.$row['booking_id'].'"class="btn btn-primary confirmbtn">Confirm</a>&nbsp;&nbsp;';
+													}
+													echo '
+													<a href="admincancelreservation.php?booking_id='.$row['booking_id'].'"class="btn btn-danger deletebtn">Delete</a>&nbsp;&nbsp;
+													';
+													if(strtolower($row['payment_status'])=='fully paid'){
+														echo'<a href="view-payment.php?booking_id='.$row['booking_id'].'"class="btn btn-success paybtn">Paid</a>';
+													}
+													else{
+														echo'<a href="view-payment.php?booking_id='.$row['booking_id'].'"class="btn btn-default paybtn">Payment</a>';
+													}
+											echo '
+													</td>                                      
+												</tr>
 												';
-												if(strtolower($row['payment_status'])=='fully paid'){
-													echo'<a href="view-payment.php?booking_id='.$row['booking_id'].'"class="btn btn-success paybtn">Paid</a>';
-												}
-												else{
-													echo'<a href="view-payment.php?booking_id='.$row['booking_id'].'"class="btn btn-default paybtn">Payment</a>';
-												}
-										echo '
-												</td>                                      
-                                            </tr>
-                                            ';
+										}
+                                        
                                     }
                                 }
                                 ?>
