@@ -204,19 +204,15 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
 
                         <!-- CONTENT -->
                         <div class="col-md-6">
-
                             <div class="reservation_content">
-
                                 <!-- RESERVATION ROOM -->
                                 <div class="reservation-room">
-
-
-                                <?php
-                                    include './dbconnect.php';
-                                    // check available room
-                                    $datestart = date('y-m-d', strtotime($_SESSION['checkin_unformat']));
-                                    $dateend   = date('y-m-d', strtotime($_SESSION['checkout_unformat']));
-                                    $result    = mysql_query("SELECT
+                                    <?php
+                                        include './dbconnect.php';
+                                        // check available room
+                                        $datestart = date('y-m-d', strtotime($_SESSION['checkin_unformat']));
+                                        $dateend   = date('y-m-d', strtotime($_SESSION['checkout_unformat']));
+                                        $result    = mysql_query("SELECT
                                             r.room_id,
                                             (r.total_room - br.total) AS availableroom,
                                             isCocoylandia
@@ -234,109 +230,167 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
                                         GROUP BY roombook.room_id) AS br
                                             ON r.room_id = br.room_id
                                         WHERE isCocoylandia = 0");
-                                    echo mysql_error();
-                                    if (mysql_num_rows($result) > 0) {
-                                        echo '<p><b>Choose Your Room</b></p><hr class="line">';
-                                        print '<form action="billing-details.php" method="post" id="chooseroom"><div class="availability-form">';
-                                        while ($row = mysql_fetch_array($result)) {
-                                            if ($row['availableroom'] != null && $row['availableroom'] > 0) {
-                                                $sub_result = mysql_query("SELECT room.* from room where room.room_id = " . $row['room_id'] . " ");
-                                                if (mysql_num_rows($sub_result) > 0) {
-                                                    while ($sub_row = mysql_fetch_array($sub_result)) {
-                                                        echo '<div class="reservation-room_item">
-                                                                <h2 class="reservation-room_name">
-                                                                <a href="#">' . $sub_row['room_name'] . '</a>
-                                                                </h2>
-                                                                <div class="reservation-room_img">
-                                                                    <a data-fancybox="gallery" href="' . $sub_row['imgpath'] . '"><img src="' . $sub_row['imgpath'] . '"></a>
-                                                                </div>
-                                                                <div class="reservation-room_text">
-                                                                    <div class="reservation-room_desc">
-                                                                        <p>' . $sub_row['descriptions'] . '</p>
-                                                                    </div><p></p>
-                                                                    <b><span class="reservation-room_amout">' . $row['availableroom'] . ' room(s) available</span></b>
-                                                                    <br/><b><span class="reservaion-room_amount">'. $sub_row2['occupancy'].' guest(s)</span></b>
-                                                                    <div class="clear"></div>
-                                                                    <p class="reservation-room_price">
-                                                                        <span class="reservation-room_amout">₱ ' . $sub_row['rate'] . '</span> / days
-                                                                    </p>
-                                                                    <br/><br/>
-                                                            <span><b>No. of room: </b></span>
-                                                            <select class="form-control" name="qtyroom' . $sub_row['room_id'] . '" id="room' . $sub_row['room_id'] . '" onChange="selection(' . $sub_row['room_id'] . ')"  style="width:100%; color:black;" ;">
-                                                            <option  value="0">0</option>';
-                                                        $i = 1;
-                                                        while ($i <= $row['availableroom']) {
-                                                            echo '<option value="' . $i . '">' . $i . '</option>';
-                                                            $i = $i + 1;
+                                        echo mysql_error();
+                                        if (mysql_num_rows($result) > 0) {
+                                            echo '<p><b>Choose Your Room</b></p><hr class="line">';
+                                            print '<form action="billing-details.php" id="chooseroom" method="post"><div class="availability-form">';
+                                            while ($row = mysql_fetch_array($result)) {
+                                                if ($row['availableroom'] != null && $row['availableroom'] > 0) {
+                                                    $sub_result = mysql_query("SELECT room.* from room where room.room_id = " . $row['room_id'] . " ");
+                                                    if (mysql_num_rows($sub_result) > 0) {
+                                                        while ($sub_row = mysql_fetch_array($sub_result)) {
+                                                            echo '<div class="reservation-room_item">
+                                                                    <h2 class="reservation-room_name">
+                                                                    <a href="#">' . $sub_row['room_name'] . '</a>
+                                                                    </h2>
+                                                                    <div class="reservation-room_img">
+                                                                        <a data-fancybox="gallery" href="' . $sub_row['imgpath'] . '"><img src="' . $sub_row['imgpath'] . '"></a>
+                                                                    </div>
+                                                                    <div class="reservation-room_text">
+                                                                        <div class="reservation-room_desc">
+                                                                            <p>' . $sub_row['descriptions'] . '</p>
+                                                                        </div><p></p>
+                                                                        <b><span class="reservation-room_amout">' . $row['availableroom'] . ' room(s) available</span></b>
+                                                                        <br/><b><span class="reservaion-room_amount">'. $sub_row2['occupancy'].' guest(s)</span></b>
+                                                                        <div class="clear"></div>
+                                                                        <p class="reservation-room_price">
+                                                                            <span class="reservation-room_amout">₱ ' . $sub_row['rate'] . '</span> / days
+                                                                        </p>
+                                                                        <br/><br/>
+                                                                <span><b>No. of room: </b></span>
+                                                                <select class="form-control" name="qtyroom' . $sub_row['room_id'] . '" id="room' . $sub_row['room_id'] . '" onChange="selection(' . $sub_row['room_id'] . ')"  style="width:100%; color:black;" ;">
+                                                                <option  value="0">0</option>';
+                                                            $i = 1;
+                                                            while ($i <= $row['availableroom']) {
+                                                                echo '<option value="' . $i . '">' . $i . '</option>';
+                                                                $i = $i + 1;
+                                                            }
+                                                            echo '</select><br/>
+                                                                    </div>
+                                                                    <input type=hidden name="selectedroom' . $sub_row['room_id'] . '"  id="selectedroom' . $sub_row['room_id'] . '" value="' . $sub_row['room_id'] . '">
+                                                                    <input type=hidden name="room_name' . $sub_row['room_id'] . '" id="room_name' . $sub_row['room_id'] . '" value="' . $sub_row['room_name'] . '">
+                                                                    </div><hr/>';
                                                         }
-                                                        echo '</select><br/>
-                                                                </div>
-                                                                <input type=hidden name="selectedroom' . $sub_row['room_id'] . '"  id="selectedroom' . $sub_row['room_id'] . '" value="' . $sub_row['room_id'] . '">
-                                                                <input type=hidden name="room_name' . $sub_row['room_id'] . '" id="room_name' . $sub_row['room_id'] . '" value="' . $sub_row['room_name'] . '">
-                                                                </div><hr/>';
                                                     }
-                                                }
-                                            } 
-                                            else if ($row['availableroom'] == null) {
-                                                $sub_result2 = mysql_query("SELECT room.* from room where room.room_id = " . $row['room_id'] . " ");
-                                                if (mysql_num_rows($sub_result2) > 0) {
-                                                    while ($sub_row2 = mysql_fetch_array($sub_result2)) {
-                                                        echo '<div class="reservation-room_item">
-                                                        <h2 class="reservation-room_name">
-                                                        <a href="#">' . $sub_row2['room_name'] . '</a>
-                                                        </h2>
-                                                        <div class="reservation-room_img">
-                                                            <a data-fancybox="gallery" href="' . $sub_row2['imgpath'] . '"><img src="' . $sub_row2['imgpath'] . '"></a>
-                                                        </div>
-                                                        <div class="reservation-room_text">
-                                                            <div class="reservation-room_desc">
-                                                                <p>' . $sub_row2['descriptions'] . '</p>
-                                                            </div><p></p>
-                                                            <b><span class="reservation-room_amout">' . $sub_row2['total_room'] . ' room(s) available</span></b>
-                                                            <br/><b><span class="reservaion-room_amount">'. $sub_row2['occupancy'].' guest(s)</span></b>
-                                                            <div class="clear"></div>
-                                                            <p class="reservation-room_price">
-                                                                <span class="reservation-room_amout">₱ ' . $sub_row2['rate'] . '</span> / days
-                                                            </p>
-                                                            <br/><br/>
-                                                            <span><b>No. of room: </b></span>
-                                                            <select class="form-control" name="qtyroom' . $sub_row2['room_id'] . '" id="room' . $sub_row2['room_id'] . '" onChange="selection(' . $sub_row['room_id'] . ')"  style="width:100%; color:black;" ;">
-                                                            <option  value="0">0</option>';
-                                                        $i = 1;
-                                                        while ($i <= $sub_row2['total_room']) {
-                                                            echo '<option value="' . $i . '">' . $i . '</option>';
-                                                            $i = $i + 1;
+                                                } 
+                                                else if ($row['availableroom'] == null) {
+                                                    $sub_result2 = mysql_query("SELECT room.* from room where room.room_id = " . $row['room_id'] . " ");
+                                                    if (mysql_num_rows($sub_result2) > 0) {
+                                                        while ($sub_row2 = mysql_fetch_array($sub_result2)) {
+                                                            echo '<div class="reservation-room_item">
+                                                            <h2 class="reservation-room_name">
+                                                            <a href="#">' . $sub_row2['room_name'] . '</a>
+                                                            </h2>
+                                                            <div class="reservation-room_img">
+                                                                <a data-fancybox="gallery" href="' . $sub_row2['imgpath'] . '"><img src="' . $sub_row2['imgpath'] . '"></a>
+                                                            </div>
+                                                            <div class="reservation-room_text">
+                                                                <div class="reservation-room_desc">
+                                                                    <p>' . $sub_row2['descriptions'] . '</p>
+                                                                </div><p></p>
+                                                                <b><span class="reservation-room_amout">' . $sub_row2['total_room'] . ' room(s) available</span></b>
+                                                                <br/><b><span class="reservaion-room_amount">'. $sub_row2['occupancy'].' guest(s)</span></b>
+                                                                <div class="clear"></div>
+                                                                <p class="reservation-room_price">
+                                                                    <span class="reservation-room_amout">₱ ' . $sub_row2['rate'] . '</span> / days
+                                                                </p>
+                                                                <br/><br/>
+                                                                <span><b>No. of room: </b></span>
+                                                                <select class="form-control" name="qtyroom' . $sub_row2['room_id'] . '" id="room' . $sub_row2['room_id'] . '" onChange="selection(' . $sub_row['room_id'] . ')"  style="width:100%; color:black;" ;">
+                                                                <option  value="0">0</option>';
+                                                            $i = 1;
+                                                            while ($i <= $sub_row2['total_room']) {
+                                                                echo '<option value="' . $i . '">' . $i . '</option>';
+                                                                $i = $i + 1;
+                                                            }
+                                                            echo '</select><br/>
+                                                            </div>
+                                                            <input type=hidden name="selectedroom' . $sub_row2['room_id'] . '"  id="selectedroom' . $sub_row2['room_id'] . '" value="' . $sub_row2['room_id'] . '">
+                                                            <input type=hidden name="room_name' . $sub_row2['room_id'] . '" id="room_name' . $sub_row2['room_id'] . '" value="' . $sub_row2['room_name'] . '">
+                                                            </div> <hr/>';
                                                         }
-                                                        echo '</select><br/>
-                                                        </div>
-                                                        <input type=hidden name="selectedroom' . $sub_row2['room_id'] . '"  id="selectedroom' . $sub_row2['room_id'] . '" value="' . $sub_row2['room_id'] . '">
-                                                        <input type=hidden name="room_name' . $sub_row2['room_id'] . '" id="room_name' . $sub_row2['room_id'] . '" value="' . $sub_row2['room_name'] . '">
-                                                        </div> <hr/>';
                                                     }
                                                 }
                                             }
+                                        } else {
+                                            echo '<p><b>No room available</b></p><hr>';
+                                            
                                         }
-                                    } else {
-                                        echo '<p><b>No room available</b></p><hr>';
-                                    }
-                                    print '</form></div>';
 
-                                ?>
+                                        //AMENITY
+                                        $amenity = mysql_query("SELECT
+                                            r.amenity_id,
+                                            (r.quantity - br.total) AS availableroom,
+                                            isCocoylandia
+                                        FROM amenities AS r
+                                        LEFT JOIN (SELECT
+                                            amenitybook.amenity_id,
+                                            SUM(amenitybook.totalamenitybook) AS total
+                                        FROM amenitybook
+                                        WHERE amenitybook.booking_id IN (SELECT
+                                            b.booking_id AS bookingID
+                                        FROM booking AS b
+                                        WHERE isCocoylandia = 1 AND ((b.checkin_date BETWEEN '" . $datestart . "' AND '" . $dateend . "')
+                                        OR (b.checkout_date BETWEEN '" . $dateend . "' AND '" . $datestart . "')))
+                                        
+                                        GROUP BY amenitybook.amenity_id) AS br
+                                            ON r.amenity_id = br.amenity_id
+                                        WHERE isCocoylandia = 1");
+                                        echo mysql_error();
+                                        if (mysql_num_rows($amenity) > 0) {
+                                            echo '<p><b>Choose Your Amenities</b></p><hr class="line">';
+                                            while ($row = mysql_fetch_array($amenity)) {
+                                                if ($row['availableroom'] != null && $row['availableroom'] > 0) {
+                                                    $sub_result = mysql_query("SELECT amenities.* from amenities where amenities.amenity_id = " . $row['amenity_id'] . " ");
+                                                    if (mysql_num_rows($sub_result) > 0) {
+                                                        while ($sub_row = mysql_fetch_array($sub_result)) {
+                                                            echo '<div class="form-check">
+                                                                <input type="checkbox" class="form-check-input" id="amenity'.$sub_row['amenity_id'].'" name="amenity'.$sub_row['amenity_id'].'">
+                                                                <label class="form-check-label" for="amenity'.$sub_row['amenity_id'].'">'. $sub_row['amenity_name'].' - PHP '.$sub_row['price']. '('.$row['availableroom'].' remaning)</label>
+                                                            </div>';
+                                                            echo '<input type=hidden name="selectedamenity' . $sub_row['amenity_id'] . '"  id="selectedamenity' . $sub_row['amenity_id'] . '" value="' . $sub_row['amenity_id'] . '">
+                                                            <input type=hidden name="amenity_name' . $sub_row['amenity_id'] . '" id="amenity_name' . $sub_row['amenity_id'] . '" value="' . $sub_row['amenity_name'] . '">
+                                                            <input type=hidden name="amenity_rate' . $sub_row['amenity_id'] . '" id="amenity_rate' . $sub_row['amenity_id'] . '" value="' . $sub_row['price'] . '">
+                                                            ';
+                                                        }
+                                                    }
+                                                } 
+                                                else if ($row['availableroom'] == null) {
+                                                    $sub_result2 = mysql_query("SELECT amenities.* from amenities where amenities.amenity_id = " . $row['amenity_id'] . " ");
+                                                    if (mysql_num_rows($sub_result2) > 0) {
+                                                        while ($sub_row2 = mysql_fetch_array($sub_result2)) {
+                                                            echo '<div class="form-check">
+                                                                <input type="checkbox" class="form-check-input" id="amenity'.$sub_row2['amenity_id'].'" name="amenity'.$sub_row2['amenity_id'].'">
+                                                                <label class="form-check-label" for="amenity'.$sub_row2['amenity_id'].'">'. $sub_row2['amenity_name'].' - PHP '.$sub_row2['price'].' ('.$sub_row2['quantity'].' remaining)</label>
+                                                            </div>';
+                                                            echo '<input type=hidden name="selectedamenity' . $sub_row2['amenity_id'] . '"  id="selectedamenity' . $sub_row2['amenity_id'] . '" value="' . $sub_row2['amenity_id'] . '">
+                                                            <input type=hidden name="amenity_name' . $sub_row2['amenity_id'] . '" id="amenity_name' . $sub_row2['amenity_id'] . '" value="' . $sub_row2['amenity_name'] . '">
+                                                            <input type=hidden name="amenity_rate' . $sub_row2['amenity_id'] . '" id="amenity_rate' . $sub_row2['amenity_id'] . '" value="' . $sub_row2['price'] . '">
+                                                            ';
+                                                        }
+                                                    }
+                                                }
+                                               
+                                            }
+                                        } else {
+                                            echo '<p><b>No amenity available</b></p><hr>';
+                                            
+                                        }
+                                        print '</form></div>';
 
+                                    ?>
                                 </div>
                                 <!-- END / RESERVATION ROOM -->
-
                             </div>
-
                         </div>
                         <!-- END / CONTENT -->
                         <div class="col-md-3">
                                     <div class="reservation-sidebar_availability bg-gray" id="roomselected" style="display:none;">
-                                    <!-- <label for="submit-form" class="awe-btn awe-btn-13" onClick="submitForm()">Proceed To Book
+                                    <!-- <label for="submit-form" class="awe-btn awe-btn-13" ">Proceed To Book
                                     </label> -->
-                                    <button name="submit" class="awe-btn awe-btn-13" onclick="submitForm();">BOOK NOW</button>
+                                    <button type="button" name="submit" class="awe-btn awe-btn-13" onClick="submitForm()">BOOK NOW</button>
                                     </div>
-                                </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -349,7 +403,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
             <!-- FOOTER BOTTOM -->
             <div class="footer_bottom">
                 <div class="container">
-                    <p>&copy; 2017 Montalban Waterpark and Garden Resort All rights reserved.</p>
+                    <p>&copy; 2017 Cocoylandia Family Resort All rights reserved.</p>
                 </div>
             </div>
             <!-- END / FOOTER BOTTOM -->
@@ -368,12 +422,14 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
         }
         else
             var e = document.getElementById('roomselected').style.display='hidden';
+
     }
     function submitForm() {
         var x= document.getElementById("chooseroom");
         x.submit();
     }
     </script>
+
 
     <!-- LOAD JQUERY -->
 

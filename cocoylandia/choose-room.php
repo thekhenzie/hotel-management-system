@@ -309,6 +309,66 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
                                             echo '<p><b>No room available</b></p><hr>';
                                             
                                         }
+
+                                        //AMENITY
+                                        $amenity = mysql_query("SELECT
+                                            r.amenity_id,
+                                            (r.quantity - br.total) AS availableroom,
+                                            isCocoylandia
+                                        FROM amenities AS r
+                                        LEFT JOIN (SELECT
+                                            amenitybook.amenity_id,
+                                            SUM(amenitybook.totalamenitybook) AS total
+                                        FROM amenitybook
+                                        WHERE amenitybook.booking_id IN (SELECT
+                                            b.booking_id AS bookingID
+                                        FROM booking AS b
+                                        WHERE isCocoylandia = 1 AND ((b.checkin_date BETWEEN '" . $datestart . "' AND '" . $dateend . "')
+                                        OR (b.checkout_date BETWEEN '" . $dateend . "' AND '" . $datestart . "')))
+                                        
+                                        GROUP BY amenitybook.amenity_id) AS br
+                                            ON r.amenity_id = br.amenity_id
+                                        WHERE isCocoylandia = 1");
+                                        echo mysql_error();
+                                        if (mysql_num_rows($amenity) > 0) {
+                                            echo '<p><b>Choose Your Amenities</b></p><hr class="line">';
+                                            while ($row = mysql_fetch_array($amenity)) {
+                                                if ($row['availableroom'] != null && $row['availableroom'] > 0) {
+                                                    $sub_result = mysql_query("SELECT amenities.* from amenities where amenities.amenity_id = " . $row['amenity_id'] . " ");
+                                                    if (mysql_num_rows($sub_result) > 0) {
+                                                        while ($sub_row = mysql_fetch_array($sub_result)) {
+                                                            echo '<div class="form-check">
+                                                                <input type="checkbox" class="form-check-input" id="amenity'.$sub_row['amenity_id'].'" name="amenity'.$sub_row['amenity_id'].'">
+                                                                <label class="form-check-label" for="amenity'.$sub_row['amenity_id'].'">'. $sub_row['amenity_name'].' - PHP '.$sub_row['price']. '('.$row['availableroom'].' remaning)</label>
+                                                            </div>';
+                                                            echo '<input type=hidden name="selectedamenity' . $sub_row['amenity_id'] . '"  id="selectedamenity' . $sub_row['amenity_id'] . '" value="' . $sub_row['amenity_id'] . '">
+                                                            <input type=hidden name="amenity_name' . $sub_row['amenity_id'] . '" id="amenity_name' . $sub_row['amenity_id'] . '" value="' . $sub_row['amenity_name'] . '">
+                                                            <input type=hidden name="amenity_rate' . $sub_row['amenity_id'] . '" id="amenity_rate' . $sub_row['amenity_id'] . '" value="' . $sub_row['price'] . '">
+                                                            ';
+                                                        }
+                                                    }
+                                                } 
+                                                else if ($row['availableroom'] == null) {
+                                                    $sub_result2 = mysql_query("SELECT amenities.* from amenities where amenities.amenity_id = " . $row['amenity_id'] . " ");
+                                                    if (mysql_num_rows($sub_result2) > 0) {
+                                                        while ($sub_row2 = mysql_fetch_array($sub_result2)) {
+                                                            echo '<div class="form-check">
+                                                                <input type="checkbox" class="form-check-input" id="amenity'.$sub_row2['amenity_id'].'" name="amenity'.$sub_row2['amenity_id'].'">
+                                                                <label class="form-check-label" for="amenity'.$sub_row2['amenity_id'].'">'. $sub_row2['amenity_name'].' - PHP '.$sub_row2['price'].' ('.$sub_row2['quantity'].' remaining)</label>
+                                                            </div>';
+                                                            echo '<input type=hidden name="selectedamenity' . $sub_row2['amenity_id'] . '"  id="selectedamenity' . $sub_row2['amenity_id'] . '" value="' . $sub_row2['amenity_id'] . '">
+                                                            <input type=hidden name="amenity_name' . $sub_row2['amenity_id'] . '" id="amenity_name' . $sub_row2['amenity_id'] . '" value="' . $sub_row2['amenity_name'] . '">
+                                                            <input type=hidden name="amenity_rate' . $sub_row2['amenity_id'] . '" id="amenity_rate' . $sub_row2['amenity_id'] . '" value="' . $sub_row2['price'] . '">
+                                                            ';
+                                                        }
+                                                    }
+                                                }
+                                               
+                                            }
+                                        } else {
+                                            echo '<p><b>No amenity available</b></p><hr>';
+                                            
+                                        }
                                         print '</form></div>';
 
                                     ?>

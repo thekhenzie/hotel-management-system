@@ -18,6 +18,13 @@ if (!isset($_SESSION['room_id'])) {
     $_SESSION['deposit'] = 0;
 }
 
+if(!isset($_SESSION['amenity_id'])){
+    $_SESSION['amenity_id'] = array();
+    $_SESSION['amenity_name'] = array();
+    $_SESSION['amenity_rate'] = array();
+    $_SESSION['additional_amount'] =0;
+}
+
 $result = mysql_query("SELECT * from room WHERE isCocoylandia = 0");
 if (mysql_num_rows($result) > 0) {
     $count = 0;
@@ -35,7 +42,21 @@ if (mysql_num_rows($result) > 0) {
             // }
         }
     }
+}
 
+$amenity = mysql_query("SELECT * from amenities WHERE isCocoylandia = 1");
+if (mysql_num_rows($amenity) > 0) {
+    $count = 0;
+    while ($row = mysql_fetch_array($amenity)) {
+        if (isset($_POST["amenity" . $row['amenity_id'] . ""]) && !empty($_POST["amenity" . $row['amenity_id'] . ""])) {
+            $_SESSION['amenity_id'][$count] = $_POST["selectedamenity" . $row['amenity_id'] . ""];
+            $_SESSION['amenity_name'][$count] = $_POST["amenity_name" . $row['amenity_id'] . ""];
+            $_SESSION['amenity_rate'][$count] = $_POST["amenity_rate" . $row['amenity_id'] . ""];
+            $_SESSION['additional_amount'] = ($row['price']* $_SESSION['total_night']) + $_SESSION['additional_amount'];
+            $count = $count + 1;
+            // }
+        }
+    }
 }
 console_log($_SESSION);
 ?>
@@ -294,7 +315,7 @@ console_log($_SESSION);
                                                         placeholder="" / />
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <label>Zip/Postcode                                                
+                                                    <label>Zip/Postcode   
                                                     </label>
                                                     <input class="input-text" name="postcode" id="postcode" type="number" pattern=".{4,4}" value="<?php if (isset($_SESSION['postcode']) && !empty($_SESSION['postcode'])) {echo $_SESSION['postcode'];}?>"
                                                         placeholder="e.g. 1600" / />
@@ -334,12 +355,12 @@ console_log($_SESSION);
                                     <h2 class="reservation-heading">Selected Rooms</h2>
                                     <!-- END / HEADING -->
 
-                                    <!-- ITEM -->
+                                    <!-- ITEM -->                                 
                                     <?php
-$no = 1;
-for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
+                                        $no = 1;
+                                        for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
 
-    echo '
+                                        echo '
                                             <div class="reservation-room-seleted_item">
 
                                             <h6>ROOM ' . $no . '</h6>
@@ -355,16 +376,16 @@ for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
                                             <div class="reservation-room-seleted_package">
                                                 <h6>RATE</h6>
                                                 <ul>';
-    for ($x = 1; $x <= $_SESSION['total_night']; $x++) {
-        $date = strtotime('+' . $x . ' day', strtotime($_SESSION['checkin_unformat']));
-        echo '
+                                        for ($x = 1; $x <= $_SESSION['total_night']; $x++) {
+                                            $date = strtotime('+' . $x . ' day', strtotime($_SESSION['checkin_unformat']));
+                                            echo '
                                                     <li>
                                                         <span>' . date("M d, Y", $date) . '  ' . $_SESSION['roomqty'][$i] . ' x ₱' . number_format(($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12 ) / $_SESSION['roomqty'][$i]) . '</span>
                                                         <span>₱' . number_format(($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12)) . '</span>
                                                     </li>';
-    }
+                                            }
 
-    echo '
+                                        echo '
                                                 </ul>
                                             </div>
 
@@ -374,23 +395,51 @@ for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
                                             </div>
 
                                             </div> ';
-    $no += 1;
-}
-?>
+                                            $no += 1;
+                                            }
+                                    ?>
 
+                                    <?php
+                                        $no = 1;
+                                        for ($i = 0; $i < count($_SESSION['amenity_id']); $i++) {
+                                        echo '
+                                            <div class="reservation-room-seleted_item">
+                                            <h6>Amenities</h6>
+                                            <div class="reservation-room-seleted_package">
+                                                <ul>';
+                                        for ($x = 1; $x <= $_SESSION['total_night']; $x++) {
+                                            $date = strtotime('+' . $x . ' day', strtotime($_SESSION['checkin_unformat']));
+                                            echo '
+                                                    <li>
+                                                        <span>'.$_SESSION['amenity_name'][$i].'   x ₱' . number_format(($_SESSION['amenity_rate'][$i] - $_SESSION['amenity_rate'][$i]*.12 )) . '</span>
+                                                        <span>₱' . number_format(($_SESSION['amenity_rate'][$i] - $_SESSION['amenity_rate'][$i]*.12)) . '</span>
+                                                    </li>';
+                                            }
+
+                                        echo '
+                                                </ul>
+                                            </div>
+                                            </div> ';
+                                            $no += 1;
+                                            }
+                                    ?>
                                         <!-- TAX -->
                                         <div class="reservation-room-seleted_item">
-                                                        <span>Tax</span>
-                                                        <span class="pull-right">₱ <?php echo number_format(($_SESSION['total_amount'] * .12), 0) ?>.00</span>
+                                                        <span>Amenities</span>
+                                                        <span class="pull-right">₱ <?php echo number_format(($_SESSION['additional_amount'])-($_SESSION['additional_amount'] * .12), 0) ?>.00</span>                                               
                                         </div>
-
+                                        <div class="reservation-room-seleted_item">
+                                                        <span>Tax</span>
+                                                        <span class="pull-right">₱ <?php echo number_format((($_SESSION['total_amount']+$_SESSION['additional_amount']) * .12), 0) ?>.00</span>
+                                        </div>
+                                                        
                                         <!-- END / ITEM -->
 
                                         <!-- TOTAL -->
                                         <div class="reservation-room-seleted_total bg-blue">
                                             <label>TOTAL</label>
                                             <span class="reservation-total">₱
-                                                <?php echo $_SESSION['total_amount']; ?>.00</span>
+                                                <?php echo ($_SESSION['total_amount']+$_SESSION['additional_amount']); ?>.00</span>
                                         </div>
                                         <!-- END / TOTAL -->
 

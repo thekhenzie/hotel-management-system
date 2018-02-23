@@ -1,6 +1,11 @@
 <?php
 session_start();
-
+function console_log($data)
+{
+    echo '<script>';
+    echo 'console.log(' . json_encode($data) . ')';
+    echo '</script>';
+}
 $_SESSION['firstname'] = $_POST["firstname"];
 $_SESSION['lastname'] = $_POST["lastname"];
 $_SESSION['email'] = $_POST["email"];
@@ -39,18 +44,25 @@ echo mysql_error();
 $_SESSION['booking_id'] = mysql_insert_id();
 $count = 0;
 foreach ($_SESSION['room_id'] as &$value0) {
-
     mysql_query("INSERT INTO `roombook` (`booking_id`, `room_id`, `totalroombook`, `id`,isCocoylandia) VALUES ('" . $_SESSION['booking_id'] . "', '" . $value0 . "', '" . $_SESSION['roomqty'][$count] . "', NULL,1);");
     $count = $count + 1;
+}
+$temp = 0;
+foreach ($_SESSION['amenity_id'] as &$value0) {
+    mysql_query("INSERT INTO `amenitybook` (`booking_id`, `amenity_id`, `totalamenitybook`, `id`,isCocoylandia) VALUES ('" . $_SESSION['booking_id'] . "', '" . $value0 . "',1, NULL,1);");
+    $count = $temp + 1;
 }
 ;
 
 $query = "SELECT * FROM booking WHERE reservation_code = '".$_SESSION['reservation_code']."' AND isCocoylandia = 1";
+echo mysql_error();
+
 $res = mysql_query($query);
 if (mysql_num_rows($res) > 0) {
     while ($rows = mysql_fetch_array($res)) {
         $booking_id = $rows['booking_id'];
         $query2 = "SELECT * from roombook WHERE booking_id = $booking_id AND isCocoylandia = 1";
+        echo mysql_error();
         $res2 = mysql_query($query2);
         $booking = mysql_fetch_array($res2);
         $to = $_SESSION['email'];
