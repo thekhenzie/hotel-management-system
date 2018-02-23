@@ -248,6 +248,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
                                                                         <p>' . $sub_row['descriptions'] . '</p>
                                                                     </div><p></p>
                                                                     <b><span class="reservation-room_amout">' . $row['availableroom'] . ' room(s) available</span></b>
+                                                                    <br/><b><span class="reservaion-room_amount">'. $sub_row2['occupancy'].' guest(s)</span></b>
                                                                     <div class="clear"></div>
                                                                     <p class="reservation-room_price">
                                                                         <span class="reservation-room_amout">₱ ' . $sub_row['rate'] . '</span> / days
@@ -285,6 +286,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
                                                                 <p>' . $sub_row2['descriptions'] . '</p>
                                                             </div><p></p>
                                                             <b><span class="reservation-room_amout">' . $sub_row2['total_room'] . ' room(s) available</span></b>
+                                                            <br/><b><span class="reservaion-room_amount">'. $sub_row2['occupancy'].' guest(s)</span></b>
                                                             <div class="clear"></div>
                                                             <p class="reservation-room_price">
                                                                 <span class="reservation-room_amout">₱ ' . $sub_row2['rate'] . '</span> / days
