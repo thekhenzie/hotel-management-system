@@ -353,32 +353,31 @@ for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
         $date = strtotime('+' . $x . ' day', strtotime($_SESSION['checkin_unformat']));
         echo '
                                                     <li>
-                                                        <span>' . date("M d, Y", $date) . '  ' . $_SESSION['roomqty'][$i] . ' x ₱' . (($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12 ) / $_SESSION['roomqty'][$i]) . '</span>
-                                                        <span>₱' . ($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12 ) . '.00</span>
+                                                        <span>' . date("M d, Y", $date) . '  ' . $_SESSION['roomqty'][$i] . ' x ₱' . number_format(($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12 ) / $_SESSION['roomqty'][$i]) . '</span>
+                                                        <span>₱' . number_format(($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12)) . '</span>
                                                     </li>';
     }
 
     echo '
                                                 </ul>
-
-                                                <ul>
-                                                    <li>
-                                                        <span>Tax</span>
-                                                        <span>₱ ' . number_format(($_SESSION['total_amount'] * .12), 2) . '</span>
-                                                    </li>
-                                                </ul>
-
                                             </div>
 
                                             <div class="reservation-room-seleted_total-room">
                                                 TOTAL Room ' . $no . '
-                                                <span class="reservation-amout">₱' . $_SESSION['ind_rate'][$i] * $_SESSION['total_night'] . '.00</span>
+                                                <span class="reservation-amout">₱' . number_format(($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12 ) * $_SESSION['total_night']) . '.00</span>
                                             </div>
 
                                             </div> ';
     $no += 1;
 }
 ?>
+
+                                        <!-- TAX -->
+                                        <div class="reservation-room-seleted_item">
+                                                        <span>Tax</span>
+                                                        <span class="pull-right">₱ <?php echo number_format(($_SESSION['total_amount'] * .12), 0) ?>.00</span>
+                                        </div>
+
                                         <!-- END / ITEM -->
 
                                         <!-- TOTAL -->
