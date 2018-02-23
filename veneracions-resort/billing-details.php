@@ -237,7 +237,7 @@ console_log($_SESSION);
                                         <!-- <p class="reservation-login">Returning customer?
                                         <a href="#">Click here to login</a>
                                     </p> -->
-                                        <form action='emailconfirmation.php' method='post' onSubmit='return validateForm(this);'>
+                                        <form action='emailconfirmation.php' method='post' onSubmit='return validateForm(this);' autocomplete='off'>
                                             <h4>BILLING DETAILS</h4>
 
                                             <!-- <label>Country
@@ -288,7 +288,6 @@ console_log($_SESSION);
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label>Zip/Postcode
-                                                        <sup>*</sup>
                                                     </label>
                                                     <input class="input-text" name="postcode" id="postcode" type="number" pattern=".{4,4}" value="<?php if (isset($_SESSION['postcode']) && !empty($_SESSION['postcode'])) {echo $_SESSION['postcode'];}?>"
                                                         placeholder="e.g. 1600" / />

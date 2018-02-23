@@ -5,7 +5,6 @@
 	[]Redesign reservation summary/email confirmation
 	[]Redesign report -> Header(Name of company, ) footer
 	[]Entrance fee -> 
-3. Pending and waiting for confirmation - make it a single process.
 4. Expiry date for unpaid bookings. -> 3days after naserve. PRINTPAGE, PENDING. Automatic cancellation if expired.
 6. Rooms and cottages should be submenus
 9. Checkout STARTER
@@ -33,12 +32,6 @@
 	[]check-in date
 
 Booking id, add aesthetics
-
-Add amenities module
-Added amenities
-Amenties module.
-	Name, Qty, Price
-
 
 Phone input masking
 
