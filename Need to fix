@@ -1,7 +1,5 @@
 1. Reservation
 	[]No of Guest
-	[]Room Capacity
-	[]Tax Breakdown -> Move tax below the selected rooms.
 	[]Redesign reservation summary/email confirmation
 	[]Redesign report -> Header(Name of company, ) footer
 	[]Entrance fee -> ***

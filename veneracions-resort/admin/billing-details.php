@@ -424,54 +424,50 @@ if (mysql_num_rows($result) > 0) {
 $no = 1;
 for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
 
-echo '
-            <div class="reservation-room-seleted_item">
+    echo '
+                                            <div class="reservation-room-seleted_item">
 
-            <h6>ROOM ' . $no . '</h6>
-            <span class="reservation-option">' . $_SESSION['guestqty'][$i] . ' Guest</span>&nbsp;
-            <span class="reservation-option">' . $_SESSION['roomqty'][$i] . ' Room</span>&nbsp;
-            <span class="reservation-option">' . ($_SESSION['ind_rate'][$i] / $_SESSION['roomqty'][$i]) . '/day</span>
-            <div class="reservation-room-seleted_name has-package">
-                <h2>
-                    <a>' . $_SESSION['roomname'][$i] . '</a>
-                </h2>
-            </div>
+                                            <h6>ROOM ' . $no . '</h6>
+                                            <span class="reservation-option">' . $_SESSION['guestqty'][$i] . ' Guest</span>&nbsp;
+                                            <span class="reservation-option">' . $_SESSION['roomqty'][$i] . ' Room</span>&nbsp;
+                                            <span class="reservation-option">' . ($_SESSION['ind_rate'][$i] / $_SESSION['roomqty'][$i]) . '/day</span>
+                                            <div class="reservation-room-seleted_name has-package">
+                                                <h2>
+                                                    <a>' . $_SESSION['roomname'][$i] . '</a>
+                                                </h2>
+                                            </div>
 
-            <div class="reservation-room-seleted_package">
-                <h6>RATE</h6>
-                <ul>';
-for ($x = 1; $x <= $_SESSION['total_night']; $x++) {
-$date = strtotime('+' . $x . ' day', strtotime($_SESSION['checkin_unformat']));
-echo '
-                    <li>
-                        <span>' . date("M d, Y", $date) . '  ' . $_SESSION['roomqty'][$i] . ' x ₱' . (($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12 ) / $_SESSION['roomqty'][$i]) . '</span>
-                        <span>₱' . ($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12 ) . '.00</span>
-                    </li>';
-}
+                                            <div class="reservation-room-seleted_package">
+                                                <h6>RATE</h6>
+                                                <ul>';
+    for ($x = 1; $x <= $_SESSION['total_night']; $x++) {
+        $date = strtotime('+' . $x . ' day', strtotime($_SESSION['checkin_unformat']));
+        echo '
+                                                    <li>
+                                                        <span>' . date("M d, Y", $date) . '  ' . $_SESSION['roomqty'][$i] . ' x ₱' . number_format(($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12 ) / $_SESSION['roomqty'][$i]) . '</span>
+                                                        <span>₱' . number_format(($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12)) . '</span>
+                                                    </li>';
+    }
 
-echo '
-                </ul>
+    echo '
+                                                </ul>
+                                            </div>
 
-                <ul>
-                    <li>
-                        <span>Tax</span>
-                        <span>₱ ' . number_format(($_SESSION['total_amount'] * .12), 2) . '</span>
-                    </li>
-                </ul>
+                                            <div class="reservation-room-seleted_total-room">
+                                                TOTAL Room ' . $no . '
+                                                <span class="reservation-amout">₱' . number_format(($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12 ) * $_SESSION['total_night']) . '.00</span>
+                                            </div>
 
-            </div>
-
-            <div class="reservation-room-seleted_total-room">
-                TOTAL Room ' . $no . '
-                <span class="reservation-amout">₱' . $_SESSION['ind_rate'][$i] * $_SESSION['total_night'] . '.00</span>
-            </div>
-
-            </div> ';
-$no += 1;
+                                            </div> ';
+    $no += 1;
 }
 ?>
         <!-- END / ITEM -->
-
+ <!-- TAX -->
+                                        <div class="reservation-room-seleted_item">
+                                                        <span>Tax</span>
+                                                        <span class="pull-right">₱ <?php echo number_format(($_SESSION['total_amount'] * .12), 0) ?>.00</span>
+                                        </div>
         <!-- TOTAL -->
         <div class="reservation-room-seleted_total bg-blue">
             <label>TOTAL</label>
