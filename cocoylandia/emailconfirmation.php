@@ -67,107 +67,186 @@ if (mysql_num_rows($res) > 0) {
         $booking = mysql_fetch_array($res2);
         $to = $_SESSION['email'];
         $subject = "Booking Details";
-        $message = "<html><body>";
-        $message .= "<table class=\"body-wrap\">\n";
-        $message .= "	<tr>\n";
-        $message .= "		<td></td>\n";
-        $message .= "		<td class=\"container\" width=\"600\">\n";
-        $message .= "			<div class=\"content\">\n";
-        $message .= "				<table class=\"main\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\n";
-        $message .= "					<tr>\n";
-        $message .= "						<td class=\"content-wrap aligncenter\">\n";
-        $message .= "							<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\n";
-        $message .= "								<tr>\n";
-        $message .= "									<td class=\"content-block\">\n";
-        $message .= "										<h1>Room Booked!</h1>\n";
-        $message .= "									</td>\n";
-        $message .= "								</tr>\n";
-        $message .= "								<tr>\n";
-        $message .= "									<td class=\"content-block\">\n";
-        $message .= "										<h2>Thanks for giving us opportunity to serve you.</h2>\n";
-        $message .= "									</td>\n";
-        $message .= "								</tr>\n";
-        $message .= "								<tr>\n";
-        $message .= "									<td class=\"content-block\">\n";
-        $message .= "										<table class=\"invoice\">\n";
-        $message .= "											<tr>\n";
-        $message .= "												<td>Dear " . $rows['first_name'] . " " . $rows['last_name'] . "<br><br><b>Booking ID #" . ($rows['booking_id'] + 1) . "</b>";
-        $message .= "                                               <br/> From <b>" . $rows['checkin_date'] . "</b> to <b>" . $rows['checkout_date'] . "</b><br><b>Contact Detail</b><br>" . $rows['addressline1'] . ", " . $rows['addressline2'] . "<br>" . $rows['postcode'] . " " . $rows['city'] . ", <br><br>Phone <b>" . $rows['phone'] . "</b><br>Email <b>" . $rows['email'] . "</b><br><br><br></td>\n";
-        $message .= "											</tr>\n";
-        $message .= "											<tr>\n";
-        $message .= "												<td>\n";
-        $message .= "													<table class=\"invoice-items\" cellpadding=\"0\" cellspacing=\"0\">\n";
-        $message .= "														<tr>\n";
-        $message .= "															<td style=\"width:200px;\">Total</td>\n";
-        $message .= "															<td  style=\"width:200px;\"> <b>PHP" . number_format($rows['total_amount'], 2) . "</b></td>\n";
-        $message .= "														</tr>\n";
-        $message .= "														<tr>\n";
-        $message .= "															<td style=\"width:200px;\">20% Deposit Due</td>\n";
-        $message .= "															<td  style=\"width:200px;\"><b>PHP" . number_format($rows['deposit'], 2) . "</b></td>\n";
-        $message .= "														</tr>\n";
-        $message .= "														\n";
-        $message .= "													</table>\n";
+        $message = "<html><body>
+            <table class='body-wrap'>
+                <tr>
+                    <td></td>
+                    <td class='container' width='600'>
+                        <div class='content'>
+                            <table class='main' width='100%' cellpadding='0' cellspacing='0'>
+                                <tr>
+                                    <td class='content-wrap aligncenter'>
+                                        <table width='100%' cellpadding='0' cellspacing='0'>
+                                            <tr>
+                                                <td>
+                                                <h1><img src='./img/logo2.jpg' class='highlight-im' style='height: 50px;'alt=''>  Cocoylandia Family Resort</h1>
+                                                </td>
+                                            <tr/>
+                                            <tr>
+                                                <td class='content-block'>
+                                                    <h2>
+                                                    Please pay 3 days before your check in date
+                                                    </h2>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class='content-block'>
+                                                    <table class='invoice'>
+                                                        <tr>
+                                                            <td> 
+                                                                <b>". $_SESSION['total_night']."</b> night stay(s) from
+                                                                <b>". $_SESSION['checkin_date']."</b> to
+                                                                <b>". $_SESSION['checkout_date']."</b>
 
-        $message .= "					<br/><h3><b>Reservation Code: </b>" . $rows['reservation_code'] . "</h3><br/>\n";
-        $message .= "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' name='form'>\n";
-        $message .= "    <input type='hidden' name='business' value='montalban.waterpark@gmail.com'>\n";
-        $message .= "    <input type='hidden' name='cmd' value='_xclick'> \n";
-        $message .= "    <input type='hidden' name='item_name' value='20% Hotel Deposit Payment for Booking ID #" . ($rows['booking_id'] + 1) . "'>\n";
-        $message .= "    <input type='hidden' name='amount' value='" . $rows['deposit'] . "'>\n";
-        $message .= "    <input type='hidden' name='no_shipping' value='1'>\n";
-        $message .= "    <input type='hidden' name='currency_code' value='PHP'>\n";
-        $message .= "    <input type='hidden' name='cancel_return' value='http://nacancel.com'>\n";
-        $message .= "    <input type='hidden' name='return' value='http://facebook.com/'>\n";
-        $message .= "    <img type=\"image\" src=\"img/paypal.jpg\" style=\"background-color:white; width:32%; height:14%; padding:2px; \" ></img>\n";
-        $message .= "	<br><button class=\"awe-btn awe-btn-6\" border=\"0\" name=\"submit\" alt=\"PayPal - The safer, easier way to pay online!\" style=\"width:32%\">Pay Room Deposit Now</button>\n";
-        $message .= "	<img alt=\"\" border=\"0\" src=\"https://www.paypalobjects.com/en_US/i/scr/pixel.gif\" width=\"1\" height=\"1\">\n";
-        $message .= "</form>\n";
-        $message .= "					<br>Notes & Policy:</b>\n";
+                                                            
+                                                               <br>No. of Guest/s :
+                                                                <b> " . array_sum($_SESSION['guestqty']) . "</b> 
+                                                                <br>
+                                                                <br>
+                                                                <b>Contact Detail</b>
+                                                                <br>" .$_SESSION['firstname'] . ' ' . $_SESSION['lastname'] ."
+                                                                <br>" . $_SESSION['addressline1'] . ", " . $_SESSION['addressline2']
+        . "
+                                                                <br>" . $_SESSION['postcode'] . " " . $_SESSION['city'] . ",
+                                                                <br>Phone
+                                                                <b>" . $_SESSION['phone'] . "</b>
+                                                                <br>Email
+                                                                <b>" . $_SESSION['email'] . "</b>
+                                                                <br>
+                                                                <br>
+                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table class='invoice-items' cellpadding='0' cellspacing='0'>
+        ";
+        
+                                            
+                                                $no = 1;
+                                                for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
+        
+                                                $message= '
+                                                            <a>' . $_SESSION['roomname'][$i] . '</a>
+        
+                                                    <div class="reservation-room-seleted_package">
+                                                        <ul>';
+                                                for ($x = 1; $x <= $_SESSION['total_night']; $x++) {
+                                                    $date = strtotime('+' . $x . ' day', strtotime($_SESSION['checkin_unformat']));
+                                                    $message= '
+                                                            <li>
+                                                                <span>' . date("M d, Y", $date) . '  ' . $_SESSION['roomqty'][$i] . ' x ₱' . number_format(($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12 ) / $_SESSION['roomqty'][$i]) . '</span>
+                                                                <span><b>₱' . number_format(($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12)) . '</b></span>
+                                                            </li>';
+                                                    }
+        
+                                                $message= '
+                                                    </ul>
+                                                    </div>
+                                                    <tr>
+                                                    <td style="width:200px;"> TOTAL Room ' . $no . '</td>
+                                                    <td style="width:200px;"><b>₱' . number_format(($_SESSION['ind_rate'][$i] - $_SESSION['ind_rate'][$i]*.12 ) * $_SESSION['total_night']) . '.00</b></td>
+                                                    </tr>
+                                                    </div> ';
+                                                    $no += 1;
+                                                    }
+                                            
+        
+                                            
+                                                $no = 1;
+                                                for ($i = 0; $i < count($_SESSION['amenity_id']); $i++) {
+                                                $message= '
+                                                    <div class="reservation-room-seleted_item">
+                                                    <h6>Amenities</h6>
+                                                    <div class="reservation-room-seleted_package">
+                                                        <ul>';
+                                                for ($x = 1; $x <= $_SESSION['total_night']; $x++) {
+                                                    $date = strtotime('+' . $x . ' day', strtotime($_SESSION['checkin_unformat']));
+                                                    $message= '
+                                                            <li>
+                                                                <span>'.$_SESSION['amenity_name'][$i].'   x ₱' . number_format(($_SESSION['amenity_rate'][$i] - $_SESSION['amenity_rate'][$i]*.12 )) . '</span>
+                                                                <span>₱' . number_format(($_SESSION['amenity_rate'][$i] - $_SESSION['amenity_rate'][$i]*.12)) . '</span>
+                                                            </li>';
+                                                    }
+        
+                                                $message= '
+                                                        </ul>
+                                                    </div>
+                                                    </div> ';
+                                                    $no += 1;
+                                                    }
+                                            
+        $message="
+                                                <tr>
+                                                    <td style='width:200px;'>Amenities</td>
+                                                    <td style='width:200px;'><b>₱ ".number_format(($_SESSION['additional_amount'])-($_SESSION['additional_amount'] * .12), 0) .".00</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style='width:200px;'>Tax</td>
+                                                    <td style='width:200px;'><b>₱ ". number_format((($_SESSION['total_amount']+$_SESSION['additional_amount']) * .12), 0) .".00</b></td>
+                                                </tr>
+                                                <!-- END / ITEM -->
+        
+                                                <!-- TOTAL -->
+                                                <tr>
+                                                    <td style='width:200px;'>TOTAL</td>
+                                                    <td style='width:200px;'><b>₱ ". ($_SESSION['total_amount']+$_SESSION['additional_amount']); .".00</b></td>
+                                                </tr>
+         
+                                                                </table>
+        
+                                                                <br/>
+                            <br>Notes & Policy:</b>
+        
+                                                                    <br>
+                                                                    <b>1. Please pay 20% deposit to confirmed your booking.</b><br>
+                                                                    <br/>
+                                                                    <b>2. Entrance Rates:</b><br/>
+                                                                    Daytime(8am-5pm)<br/>
+                                                                    Adult- 200.00<br/>
+                                                                    Children (4ft below) 100.00<br/>
+                                                                    <br/>
+                                                                    Night(5pm-12mn)<br/>
+                                                                    Adult- 220.00<br/>
+                                                                    Children (4ft below) 100.00<br/>
+                                                                    <br/>
+                                                                    Overnight(6pm-6am)<br/>
+                                                                    Adult- 250.00<br/>
+                                                                    Children(4ft below) 100.00
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br><p><b>BANK DETAILS </b> <br/>
+                                                <b>BANK:</b> Banco de Oro (BDO) <br/>
+                                                <b>ACCOUNT NAME:</b> Montalban Waterpark and Garden Resort Inc. <br/>
+                                                <b>ACCOUNT NUMBER: </b>2210309294</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class='footer'>
+                            <table width='100%'>
+                                <tr>
+                                    <td><br>Questions? Call Us at (02) 654-15-26 or (63) 933-183-9100</td>
+                                </tr>
+                            </table>
+                        </div></div>
+                </td>
+                <td></td>
+            </tr>
+        </table> </body>
+        </html>";
 
-        $message .= "															<br>\n";
-        $message .= "															<b>1. Please pay 20% deposit to confirm your booking.</b><br>\n";
-        $message .= "															2. Firearm and deadly weapons are strictly not allowed.<br>\n";
-        $message .= "															3. All children must be under adult supervision at all times.<br>\n";
-        $message .= "															4. The Management shall not be held responsible for the injury or incident of our guests; nor for the loss of valuables and belongings.<br>\n";
-        $message .= "															5. All damages to our properties will be charged accordingly.<br>\n";
-        $message .= "															6. The Management reserves the right to refuse any guest.<br>\n";
-        $message .= "															 7. Always wear proper swimming attire. Maong short and colored T-shirts are not allowed.<br>\n";
-        $message .= "															7. Everyone is required to take a shower before swimming.<br>\n";
-        $message .= "															8. Strictly NO Bottled drinks are allowed. Corkage fee applied.<br>\n";
-        $message .= "															9. NO littering. Please keep your tables & cottages tidy and clean.<br>\n";
-        $message .= "															10.Rough playing & other misbehaviors that could result to injuries or annoyance are strictly prohibited.<br>\n";
-        $message .= "															11.Strictly NO eating, drinking & smoking in pool area.<br>\n";
-        $message .= "															12.Vandalism is a crime punishable by law.<br>\n";
-        $message .= "															\n";
-        $message .= "												</td>\n";
-        $message .= "											</tr>\n";
-        $message .= "										</table>\n";
-        $message .= "									</td>\n";
-        $message .= "								</tr>\n";
-        $message .= "								<tr>\n";
-        $message .= "								</tr>\n";
-        $message .= "								<tr>\n";
-        $message .= "									<td>\n";
-        $message .= "										<br><p><b>BANK DETAILS</b> <br/><b>ACCOUNT NAME:</b> Montalban Waterpark and Garden Resort Inc.<br/><b>ACCOUNT NUMBER: </b>2210309294</p>\n";
-        $message .= "									</td>\n";
-        $message .= "								</tr>\n";
-        $message .= "							</table>\n";
-        $message .= "						</td>\n";
-        $message .= "					</tr>\n";
-        $message .= "				</table>\n";
-        $message .= "				<div class=\"footer\">\n";
-        $message .= "					<table width=\"100%\">\n";
-        $message .= "						<tr>\n";
-        $message .= "							<td><br>Questions? Call Us at (02) 654-15-26 or (63) 933-183-9100</td>\n";
-        $message .= "						</tr>\n";
-        $message .= "					</table>\n";
-        $message .= "				</div></div>\n";
-        $message .= "		</td>\n";
-        $message .= "		<td></td>\n";
-        $message .= "	</tr>\n";
-        $message .= "</table>";
 
-        $message .= "</body></html>";
+
         $headers = "From: admin@veneracions-hotel.net";
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
