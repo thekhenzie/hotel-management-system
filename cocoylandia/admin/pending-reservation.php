@@ -278,7 +278,7 @@ if (mysql_num_rows($re) > 0) {
 													<a href="admincancelreservation.php?booking_id='.$row['booking_id'].'"class="btn btn-danger deletebtn">Delete</a>&nbsp;&nbsp;
 													';
 													if(strtolower($row['payment_status'])=='fully paid'){
-														echo'<a href="view-payment.php?booking_id='.$row['booking_id'].'"class="btn btn-success paybtn">Paid</a>';
+														echo'<a href="#" class="btn btn-success paybtn" disabled>Paid</a>';
 													}
 													else{
 														echo'<a href="view-payment.php?booking_id='.$row['booking_id'].'"class="btn btn-default paybtn">Payment</a>';
@@ -305,7 +305,7 @@ if (mysql_num_rows($re) > 0) {
 													<a href="admincancelreservation.php?booking_id='.$row['booking_id'].'"class="btn btn-danger deletebtn">Delete</a>&nbsp;&nbsp;
 													';
 													if(strtolower($row['payment_status'])=='fully paid'){
-														echo'<a href="view-payment.php?booking_id='.$row['booking_id'].'"class="btn btn-success paybtn">Paid</a>';
+														echo'<a href="#" class="btn btn-success paybtn" disabled>Paid</a>';
 													}
 													else{
 														echo'<a href="view-payment.php?booking_id='.$row['booking_id'].'"class="btn btn-default paybtn">Payment</a>';
