@@ -30,16 +30,16 @@ if (mysql_num_rows($result) > 0) {
     $count = 0;
     while ($row = mysql_fetch_array($result)) {
         if (isset($_POST["qtyroom" . $row['room_id'] . ""]) && !empty($_POST["qtyroom" . $row['room_id'] . ""])) {
-            // if (isset($_POST["qtyguest" . $row['room_id'] . ""]) && !empty($_POST["qtyguest" . $row['room_id'] . ""])) {
+            if (isset($_POST["qtyguest" . $row['room_id'] . ""]) && !empty($_POST["qtyguest" . $row['room_id'] . ""])) {
             $_SESSION['room_id'][$count] = $_POST["selectedroom" . $row['room_id'] . ""];
             $_SESSION['roomqty'][$count] = $_POST["qtyroom" . $row['room_id'] . ""];
-            $_SESSION['guestqty'][$count] = 1;
+            $_SESSION['guestqty'][$count] = $_POST["qtyguest" . $row['room_id'] . ""];
             $_SESSION['roomname'][$count] = $_POST["room_name" . $row['room_id'] . ""];
             $_SESSION['ind_rate'][$count] = $row['rate'] * $_POST["qtyroom" . $row['room_id'] . ""];
             $_SESSION['total_amount'] = ($row['rate'] * $_POST["qtyroom" . $row['room_id'] . ""] * $_SESSION['total_night']) + $_SESSION['total_amount'];
             $_SESSION['deposit'] = $_SESSION['total_amount'] * 0.20;
             $count = $count + 1;
-            // }
+            }
         }
     }
 }

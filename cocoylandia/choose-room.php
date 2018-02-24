@@ -244,7 +244,7 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
                                                                             <p>' . $sub_row['descriptions'] . '</p>
                                                                         </div><p></p>
                                                                         <b><span class="reservation-room_amout">' . $row['availableroom'] . ' room(s) available</span></b>
-                                                                        <br/><b><span class="reservaion-room_amount">'. $sub_row2['occupancy'].' guest(s)</span></b>
+                                                                        <br/><b><span class="reservaion-room_amount">'. $sub_row['occupancy'].' guest(s)</span></b>
                                                                         <div class="clear"></div>
                                                                         <p class="reservation-room_price">
                                                                             <span class="reservation-room_amout">₱ ' . $sub_row['rate'] . '</span> / days
@@ -253,12 +253,22 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
                                                                 <span><b>No. of room: </b></span>
                                                                 <select class="form-control" name="qtyroom' . $sub_row['room_id'] . '" id="room' . $sub_row['room_id'] . '" onChange="selection(' . $sub_row['room_id'] . ')"  style="width:100%; color:black;" ;">
                                                                 <option  value="0">0</option>';
-                                                            $i = 1;
-                                                            while ($i <= $row['availableroom']) {
-                                                                echo '<option value="' . $i . '">' . $i . '</option>';
-                                                                $i = $i + 1;
-                                                            }
-                                                            echo '</select><br/>
+                                                                $i = 1;
+                                                                while ($i <= $row['availableroom']) {
+                                                                    echo '<option value="' . $i . '">' . $i . '</option>';
+                                                                    $i = $i + 1;
+                                                                }
+                                                                echo '</select><br/>
+                                                                <span><b>No. of guest: </b></span>
+                                                                <select class="form-control" name="qtyguest' . $sub_row['room_id'] . '" id="qtyguest' . $sub_row['room_id'] . '"  style="width:100%; color:black;" ;">
+                                                                    <option  value="0">0</option>';
+                                                                $i = 1;
+                                                                while ($i <= $sub_row['occupancy']) {
+                                                                    echo '<option value="' . $i . '">' . $i . '</option>';
+                                                                    $i = $i + 1;
+                                                                }
+                                                                echo '</select><br/>
+
                                                                     </div>
                                                                     <input type=hidden name="selectedroom' . $sub_row['room_id'] . '"  id="selectedroom' . $sub_row['room_id'] . '" value="' . $sub_row['room_id'] . '">
                                                                     <input type=hidden name="room_name' . $sub_row['room_id'] . '" id="room_name' . $sub_row['room_id'] . '" value="' . $sub_row['room_name'] . '">
@@ -296,6 +306,15 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
                                                                 echo '<option value="' . $i . '">' . $i . '</option>';
                                                                 $i = $i + 1;
                                                             }
+                                                            echo '</select><br/>
+                                                                <span><b>No. of guest: </b></span>
+                                                                <select class="form-control" name="qtyguest' . $sub_row2['room_id'] . '" id="qtyguest' . $sub_row2['room_id'] . '"  style="width:100%; color:black;" ;">
+                                                                    <option  value="0">0</option>';
+                                                                $i = 1;
+                                                                while ($i <= $sub_row2['occupancy']) {
+                                                                    echo '<option value="' . $i . '">' . $i . '</option>';
+                                                                    $i = $i + 1;
+                                                                }
                                                             echo '</select><br/>
                                                             </div>
                                                             <input type=hidden name="selectedroom' . $sub_row2['room_id'] . '"  id="selectedroom' . $sub_row2['room_id'] . '" value="' . $sub_row2['room_id'] . '">
