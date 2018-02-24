@@ -1,6 +1,5 @@
 1. Reservation
-	[]No of Guest
-PRINTPAGE
+	[]Entrance fee
 9. Checkout STARTER
 	[]Room status -> Status of the room e.g Damaged, Good condition
 	[]Checkout time 
@@ -9,16 +8,11 @@ PRINTPAGE
 	[]Room details 
 	[]Availed amenities
 13. Dashboard
-	[]List of available and occupied rooms
+	[]List of available and occupied rooms (done initial UI)
 17. Validations
 	[]20% deposit 
 	[]login after payment 
 	[]installment amount paid 
 Phone input masking
-
-
-	[]Redesign report -> Header(Name of company, ) footer
-11. Reports
-	[]Include appropriate parts, footer, and header. PRINTPAGE
 	
 Booking id, add aesthetics
