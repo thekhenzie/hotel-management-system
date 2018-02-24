@@ -190,7 +190,7 @@ if (mysql_num_rows($res) > 0) {
                                                 <!-- TOTAL -->
                                                 <tr>
                                                     <td style='width:200px;'>TOTAL</td>
-                                                    <td style='width:200px;'><b>₱ ". ($_SESSION['total_amount']+$_SESSION['additional_amount']); .".00</b></td>
+                                                    <td style='width:200px;'><b>₱ ". ($_SESSION['total_amount']+$_SESSION['additional_amount']) .".00</b></td>
                                                 </tr>
          
                                                                 </table>
@@ -251,6 +251,8 @@ if (mysql_num_rows($res) > 0) {
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
+        console_log($message);
+        
         mail($to, $subject, $message, $headers);
     }
 }
