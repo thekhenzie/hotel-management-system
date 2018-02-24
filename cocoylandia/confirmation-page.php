@@ -279,21 +279,6 @@ for ($i = 0; $i < count($_SESSION['room_id']); $i++) {
 		<div class="row">
 			<div class="large-12 columns" >
 
-
-<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' name='form'>
-    <input type='hidden' name='business' value='montalban.waterpark@gmail.com'>
-    <input type='hidden' name='cmd' value='_xclick'>
-    <input type='hidden' name='item_name' value='15% Hotel Deposit Payment for Booking ID #<?php echo $_SESSION['booking_id']; ?>'>
-    <input type='hidden' name='amount' value='<?php echo $_SESSION['deposit']; ?>'>
-    <input type='hidden' name='no_shipping' value='1'>
-    <input type='hidden' name='currency_code' value='PHP'>
-    <input type='hidden' name='cancel_return' value='http://veneracionsresort.site88.net/veneracions-resort/paypal-cancel.html'>
-    <input type='hidden' name='return' value='http://veneracionsresort.site88.net/veneracions-resort/paypal-success.php'>
-    <input type="hidden" name="notify_url" value="http://veneracionsresort.site88.net/veneracions-resort/paypal-success.php">
-    <img type="image" src="img/paypal.jpg" style="background-color:white; width:32%; height:14%; padding:2px; " ></img>
-	<br><button class="awe-btn awe-btn-6" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="width:32%">Pay Room Deposit Now</button>
-	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
 <br/>
 <p><b>BANK DETAILS</b> <br/>
 <b>BANK:</b> Banco de Oro (BDO) <br/>
