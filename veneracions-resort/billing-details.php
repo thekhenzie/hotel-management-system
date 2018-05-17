@@ -44,7 +44,7 @@ if (mysql_num_rows($result) > 0) {
     }
 }
 
-$amenity = mysql_query("SELECT * from amenities WHERE isCocoylandia = 1");
+$amenity = mysql_query("SELECT * from amenities WHERE isCocoylandia = 0");
 if (mysql_num_rows($amenity) > 0) {
     $count = 0;
     while ($row = mysql_fetch_array($amenity)) {
@@ -493,11 +493,11 @@ console_log($_SESSION);
             }
         </script>
         <script type="text/javascript">
-        function blockSpecialChar(e){
-        var k;
-        document.all ? k = e.keyCode : k = e.which;
-        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 );
-        }
+            function blockSpecialChar(e){
+            var k;
+            document.all ? k = e.keyCode : k = e.which;
+            return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 );
+            }
         </script>
         <script>
             $(function() {
