@@ -39,7 +39,7 @@ if (mysql_num_rows($result) > 0) {
             $_SESSION['total_amount'] = ($row['rate'] * $_POST["qtyroom" . $row['room_id'] . ""] * $_SESSION['total_night']) + $_SESSION['total_amount'];
             $_SESSION['deposit'] = $_SESSION['total_amount'] * 0.20;
             $count = $count + 1;
-            // }
+             }
         }
     }
 }
