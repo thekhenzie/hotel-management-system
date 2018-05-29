@@ -58,6 +58,12 @@ if (mysql_num_rows($amenity) > 0) {
         }
     }
 }
+if($_SESSION['day_type']=='3'){
+    $_SESSION['entrance_amount'] = array_sum($_SESSION['guestqty'])*200;
+}
+else{
+    $_SESSION['entrance_amount'] = array_sum($_SESSION['guestqty'])*150;
+}
 console_log($_SESSION);
 ?>
     <!DOCTYPE html>
@@ -429,6 +435,10 @@ console_log($_SESSION);
                                                         <span class="pull-right">₱ <?php echo number_format(($_SESSION['additional_amount'])-($_SESSION['additional_amount'] * .12), 0) ?>.00</span>                                               
                                         </div>
                                         <div class="reservation-room-seleted_item">
+                                                        <span>Entrance Fee</span>
+                                                            <span class="pull-right">₱ <?php echo number_format($_SESSION['entrance_amount'], 0) ?>.00</span>                                               
+                                                        </div>
+                                        <div class="reservation-room-seleted_item">
                                                         <span>Tax</span>
                                                         <span class="pull-right">₱ <?php echo number_format((($_SESSION['total_amount']+$_SESSION['additional_amount']) * .12), 0) ?>.00</span>
                                         </div>
@@ -439,7 +449,7 @@ console_log($_SESSION);
                                         <div class="reservation-room-seleted_total bg-blue">
                                             <label>TOTAL</label>
                                             <span class="reservation-total">₱
-                                                <?php echo ($_SESSION['total_amount']+$_SESSION['additional_amount']); ?>.00</span>
+                                                <?php echo ($_SESSION['total_amount']+$_SESSION['additional_amount']+$_SESSION['entrance_amount']); ?>.00</span>
                                         </div>
                                         <!-- END / TOTAL -->
 

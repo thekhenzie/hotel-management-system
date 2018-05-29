@@ -6,17 +6,25 @@ function console_log($data)
     echo 'console.log(' . json_encode($data) . ')';
     echo '</script>';
 }
-if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["checkOut"]) && !empty($_POST["checkOut"])) {
+if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["test"]) && !empty($_POST["test"])) {
+    if($_POST['test'] == 1 || $_POST['test'] ==2){
+        $_SESSION['checkout_date'] = date('M d, Y', strtotime($_POST['checkIn']));
+        $_SESSION['checkout_db'] = date('y-m-d', strtotime($_POST['checkIn']));
+        $_SESSION['datetime2'] = new DateTime($_SESSION['checkout_db']);
+        $_SESSION['checkout_unformat'] = $_POST["checkIn"];
+    }
+    else{
+        $_SESSION['checkout_date'] = date('M d, Y', strtotime("+1 day", strtotime($_POST['checkIn'])));
+        $_SESSION['checkout_db'] = date('y-m-d', strtotime("+1 day", strtotime($_POST['checkIn'])));
+        $_SESSION['datetime2'] = new DateTime($_SESSION['checkout_db']);
+        $_SESSION['checkout_unformat'] = strtotime("+1 day", strtotime($_POST['checkIn']));
+    }
     $_SESSION['checkin_date'] = date('M d, Y', strtotime($_POST['checkIn']));
-    $_SESSION['checkout_date'] = date('M d, Y', strtotime($_POST['checkOut']));
     $_SESSION['checkin_db'] = date('y-m-d', strtotime($_POST['checkIn']));
-    $_SESSION['checkout_db'] = date('y-m-d', strtotime($_POST['checkOut']));
     $_SESSION['datetime1'] = new DateTime($_SESSION['checkin_db']);
-    $_SESSION['datetime2'] = new DateTime($_SESSION['checkout_db']);
     $_SESSION['checkin_unformat'] = $_POST["checkIn"];
-    $_SESSION['checkout_unformat'] = $_POST["checkOut"];
     $_SESSION['interval'] = $_SESSION['datetime1']->diff($_SESSION['datetime2']);
-
+    $_SESSION['day_type'] = $_POST['test'];
     $_SESSION['total_night'] = $_SESSION['interval']->format('%d');
     if ($_SESSION['total_night'] == 0) {
         $_SESSION['total_night'] = 1;
@@ -428,7 +436,6 @@ if (isset($_POST["checkIn"]) && !empty($_POST["checkIn"]) && isset($_POST["check
 
     <script>
     function selection(id) {
-        debugger;
         if(this.value!=0){
             var e = document.getElementById('roomselected').style.display='block';
         }

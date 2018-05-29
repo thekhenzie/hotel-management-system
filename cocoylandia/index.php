@@ -191,8 +191,13 @@ $userRow = mysql_fetch_array($res);
                         <!-- <div class="col-lg-3"> -->
                             <a href="cancellation.php" class='awe-btn awe-btn-13' style="margin-right: 50px"> Cancel reservation </a>&nbsp;&nbsp;&nbsp;&nbsp;
                             
-                                <input type="text" name='checkIn' id='checkIn' required class="awe-calendar from" placeholder="Arrival Date">
-                                <input type="text" name='checkOut' id='checkOut' required class="awe-calendar from" placeholder="Departure Date">
+                                <input autocomplete='off' type="text" name='checkIn' id='checkIn' required class="awe-calendar from" placeholder="Arrival Date">
+                                <select class='awe-select' name='test' id='test' required style='width: 100px;'>
+                                    <option selected value="1">Day</option>
+                                    <option value="2">Night</option>
+                                    <option value="3">Overnight</option>
+                                </select>
+                                <!-- <input type="text" name='checkOut' id='checkOut' required class="awe-calendar from" placeholder="Departure Date"> -->
                                 <div class="vailability-submit">
                                     <button name="submit" href="#" class="awe-btn awe-btn-13">BOOK NOW</button>
                                 </div>
