@@ -1,5 +1,5 @@
 1. Reservation
-	[]Entrance fee
+	[/]Entrance fee
 9. Checkout STARTER
 	[]Room status -> Status of the room e.g Damaged, Good condition
 	[]Checkout time 
@@ -10,9 +10,10 @@
 13. Dashboard
 	[]List of available and occupied rooms (done initial UI)
 17. Validations
-	[]20% deposit 
+	[/]20% deposit 
 	[]login after payment 
-	[]installment amount paid 
+	[/]installment amount paid 
 Phone input masking
 	
 Booking id, add aesthetics
+
