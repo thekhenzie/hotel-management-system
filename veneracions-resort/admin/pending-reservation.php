@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if($_GET['id']){
+	$_SESSION['username'] = $_GET['session'];
+	$_SESSION['password'] = $_GET['id'];
+}
 include './auth.php';
 $re = mysql_query("SELECT * from admin WHERE username='" . $_SESSION['username'] . "' AND password='" . $_SESSION['password'] . "'");
 echo mysql_error();

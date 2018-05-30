@@ -236,7 +236,7 @@ if (mysql_num_rows($re) > 0) {
                 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <a href="pending-reservation.php" class="btn btn-primary">Back</a>
+                            <a href="pending-reservation.php?id=<?php echo $_SESSION['password']?>&session=<?php echo $_SESSION['username'] ?>" class="btn btn-primary">Back</a>
                         </div>
                         <div class="panel-body">
                             <?php 
